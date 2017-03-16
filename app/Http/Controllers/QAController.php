@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\QA;
 
 class QAController extends Controller
 {
@@ -34,7 +35,10 @@ class QAController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $subject = $request->input('subject');
+        $response = $request->input('response');
+        $qa = QA::create(['subject' => $subject, 'response' => $response]);
+        return redirect()->route('qa.edit', ['id' => $qa->id]);
     }
 
     /**
@@ -56,7 +60,8 @@ class QAController extends Controller
      */
     public function edit($id)
     {
-        //
+        $qa = QA::find($id);
+        return view('qa.create', ['qa' => $qa]);
     }
 
     /**
@@ -68,7 +73,11 @@ class QAController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $subject = $request->input('subject');
+        $response = $request->input('response');
+        $qa = QA::find($id);
+        $qa->update(['subject' => $subject, 'response' => $response]);
+        return redirect()->route('qa.edit', ['id' => $qa->id]);
     }
 
     /**
