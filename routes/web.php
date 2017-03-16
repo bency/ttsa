@@ -12,3 +12,5 @@
 */
 
 Route::resource('qa', 'QAController');
+Route::get('/', 'IndexController@random');
+Route::get('/{string}', 'IndexController@show');
