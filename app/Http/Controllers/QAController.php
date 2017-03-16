@@ -23,7 +23,7 @@ class QAController extends Controller
      */
     public function create()
     {
-        //
+        return view('qa.create');
     }
 
     /**
