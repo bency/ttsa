@@ -15,6 +15,18 @@
     </head>
     <body>
         <div class="container">
+            <h3>機車上國道 Q&A 設定後台</h3>
+            <form action="{{ route('qa.store') }}">
+                <div class="form-group">
+                    <label>題目</label>
+                    <textarea class="form-control" name="subject"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>回應</label>
+                    <textarea class="form-control" name="response"></textarea>
+                </div>
+                <input class="btn btn-primary pull-right" value="儲存或更新" type="submit">
+            </form>
         </div>
     </body>
 </html>
