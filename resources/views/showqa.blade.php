@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta property="og:url" content="{{ url()->current() }}">
         <meta property="og:title" content="{{ isset($qa) ? $qa->subject : ''}}">
         <meta property="og:description" content="{{ isset($qa) ? $qa->response : '' }}">
 
