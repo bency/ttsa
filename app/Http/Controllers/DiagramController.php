@@ -67,6 +67,21 @@ class DiagramController extends Controller
                 'data13' => '駕照：普通輕型機車',
                 'data14' => '駕照：小型輕型機車',
             ],
+            'hide' => [
+                'data1',
+                'data2',
+                'data3',
+                'data4',
+                'data5',
+                'data6',
+                'data7',
+                'data8',
+                'data9',
+                'data10',
+                'data12',
+                'data13',
+                'data14',
+            ],
         ];
         return response()->json($ret);
     }
