@@ -30,10 +30,10 @@ var chart = c3.generate({
         format: {
             title: function (year) {
                 if (year.getFullYear() == '2007') {
-                    return '2007 重機開放進口';
+                    return '2007 開放紅牌上高架';
                 }
                 if (year.getFullYear() == '2012') {
-                    return '2012 開放紅黃牌上高架';
+                    return '2012 開放黃牌上高架';
                 }
                 return year.getFullYear();
             }
