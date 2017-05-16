@@ -17,6 +17,10 @@ var chart = c3.generate({
         xFormat: '%Y',
         columns: []
     },
+    zoom: {
+        enabled: true,
+        rescale: true
+    },
     axis: {
         x: {
             type: "timeseries",
