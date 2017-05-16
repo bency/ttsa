@@ -49,7 +49,21 @@ class DiagramController extends Controller
                 'data14' => 'axis',
                 'data15' => 'axis',
             ],
+            'type' => 'bar',
+            'types' => [
+                'data1'  => 'line',
+                'data2'  => 'line',
+                'data7'  => 'line',
+                'data12' => 'line',
+                'data13' => 'line',
+                'data14' => 'line',
+                'data15' => 'line',
+            ],
             'columns' => $data,
+            'groups' => [
+                ['data3', 'data4', 'data5', 'data6'],
+                ['data8', 'data9', 'data10', 'data11']
+            ],
             'names' => [
                 'data1' => '駕照：汽車',
                 'data2' => '駕照：職業駕照',

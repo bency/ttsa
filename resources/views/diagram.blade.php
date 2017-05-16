@@ -47,6 +47,7 @@ var chart = c3.generate({
 $.get('/api/diagrams', function (data) {
     chart.load(data);
     chart.hide(data.hide);
+    chart.groups(data.groups);
 });
 
     </script>
