@@ -24,9 +24,6 @@ var chart = c3.generate({
                 fit: true,
                 format: "%Y"
             }
-        },
-        y: {
-            max: 300000
         }
     },
     tooltip: {
