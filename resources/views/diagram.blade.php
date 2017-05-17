@@ -30,6 +30,11 @@ var chart = c3.generate({
                 fit: true,
                 format: "%Y"
             }
+        },
+        y: {
+            tick: {
+                format: d3.format("s")
+            }
         }
     },
     tooltip: {
