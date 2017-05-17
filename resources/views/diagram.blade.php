@@ -40,6 +40,9 @@ var chart = c3.generate({
     tooltip: {
         format: {
             title: function (year) {
+                if (year.getFullYear() == '2002') {
+                    return '2002 開放 250cc 以上進口';
+                }
                 if (year.getFullYear() == '2007') {
                     return '2007 開放紅牌上高架';
                 }
