@@ -60,5 +60,10 @@ $.get('/api/driverlicenses', function (data) {
     chart.groups(data.groups);
 });
 
+$.get('/api/vehicles', function (data) {
+    chart.load(data);
+    chart.hide(data.hide);
+});
+
     </script>
 @endsection
