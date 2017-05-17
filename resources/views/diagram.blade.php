@@ -20,6 +20,9 @@ var chart = c3.generate({
         enabled: true,
         rescale: true
     },
+    legend: {
+        position: 'right'
+    },
     axis: {
         x: {
             type: "timeseries",
