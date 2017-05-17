@@ -13,7 +13,6 @@
 var chart = c3.generate({
     bindto: '#everything',
     data: {
-        x: 'axis',
         xFormat: '%Y',
         columns: []
     },
