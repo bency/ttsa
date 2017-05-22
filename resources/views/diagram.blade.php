@@ -6,7 +6,7 @@
     <script src="{{ asset('/js/c3.min.js') }}"></script>
 @endsection
 @section('container')
-    <h1>駕照數量分析圖</h1>
+    <h1>駕照數量與機動車輛數分析圖</h1>
     <section id="everything">
     </section>
     <script>
