@@ -26,6 +26,15 @@ var chart = c3.generate({
     legend: {
         position: 'right'
     },
+    grid: {
+        x: {
+            lines: [
+                {value: '2002', text: '開放 250cc 以上進口', position: 'middle'},
+                {value: '2007', text: '開放 550cc 以上上高架'},
+                {value: '2012', text: '開放 250cc 以上上高架'}
+            ]
+        }
+    },
     subchart: {
         show: true,
     },
@@ -41,21 +50,6 @@ var chart = c3.generate({
             tick: {
                 format: d3.format("s")
             }
-        }
-    },
-    tooltip: {
-        format: {
-            title: function (year) {
-                if (year.getFullYear() == '2002') {
-                    return '2002 開放 250cc 以上進口';
-                }
-                if (year.getFullYear() == '2007') {
-                    return '2007 開放紅牌上高架';
-                }
-                if (year.getFullYear() == '2012') {
-                    return '2012 開放黃牌上高架';
-                }
-                return year.getFullYear();
             }
         }
     }
