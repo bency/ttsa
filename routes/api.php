@@ -18,3 +18,4 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 Route::get('/driverlicenses', 'DiagramController@driverLicenses');
 Route::get('/vehicles', 'DiagramController@vehicles');
+Route::get('/accident-ratio', 'DiagramController@accidentRatio');

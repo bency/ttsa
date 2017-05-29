@@ -9,6 +9,9 @@
     <h1>駕照數量與機動車輛數分析圖</h1>
     <section id="everything">
     </section>
+    <h1>各車種涉入事故比例</h1>
+    <a class="pull-right" href="http://talas-pub.iot.gov.tw/MainQuery.aspx" target="_blank">來源 <span class="glyphicon glyphicon-share"></span></a>
+    <section id="accident"></section>
     <script>
 var chart = c3.generate({
     bindto: '#everything',
@@ -60,6 +63,62 @@ var chart = c3.generate({
             }
         }
     }
+});
+
+var accidentChart = c3.generate({
+    bindto: '#accident',
+    size: {
+        height: 1000
+    },
+    data: {
+        columns: [
+        ],
+        order: 'desc',
+        color: function (color, d) {
+            if (typeof d.id === 'undefined') {
+                return color;
+            }
+            color = d3.rgb('#133a92');
+            if (d.index < 24) {
+                color = d3.rgb('#79c71b');
+            }
+            if (d.index < 21) {
+                color = d3.rgb('#e22b2b');
+            }
+            if (d.index < 19) {
+                color = d3.rgb('#783894');
+            }
+            if (d.index < 14) {
+                color = d3.rgb('#387894');
+            }
+            var darker = d.id % 3 / 3;
+            return d3.rgb(color).darker(darker);
+        }
+    },
+    axis: {
+        rotated: true,
+        x: {
+            type: 'category'
+        },
+        y: {
+            max: 2,
+            label: "每萬輛涉及人數比例"
+        }
+    },
+    grid: {
+        y: {
+            show: true
+        }
+    },
+    zoom: {
+        enabled: true,
+        rescale: true
+    }
+});
+$.get('/api/accident-ratio', function (data) {
+    accidentChart.load(data);
+    accidentChart.unload(data.hide);
+    accidentChart.groups(data.groups);
 });
 $.get('/api/driverlicenses', function (data) {
     chart.load(data);
