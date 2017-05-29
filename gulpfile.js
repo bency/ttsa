@@ -19,4 +19,5 @@ elixir(mix => {
     mix.copy('node_modules/d3/d3.min.js', 'public/js/d3.min.js');
     mix.copy('node_modules/c3/c3.min.js', 'public/js/c3.min.js');
     mix.copy('node_modules/c3/c3.min.css', 'public/css/c3.min.css');
+    mix.phpUnit('tests/**/*.php', 'phpunit');
 });
