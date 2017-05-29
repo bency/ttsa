@@ -46,10 +46,17 @@ var chart = c3.generate({
                 format: "%Y"
             }
         },
-        y: {
+        y2: {
+            show: true,
+            label: '駕照數量',
             tick: {
                 format: d3.format("s")
             }
+        },
+        y: {
+            label: '機動車輛數',
+            tick: {
+                format: d3.format("s")
             }
         }
     }

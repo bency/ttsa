@@ -110,6 +110,23 @@ class DiagramController extends Controller
             [ 'data15',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,3,5,3,4,4,3,3,2,4],
         ];
         $ret = [
+            'axes' => [
+                'data1' => 'y2',
+                'data2' => 'y2',
+                'data3' => 'y2',
+                'data4' => 'y2',
+                'data5' => 'y2',
+                'data6' => 'y2',
+                'data7' => 'y2',
+                'data8' => 'y2',
+                'data9' => 'y2',
+                'data10' => 'y2',
+                'data11' => 'y2',
+                'data12' => 'y2',
+                'data13' => 'y2',
+                'data14' => 'y2',
+                'data15' => 'y2',
+            ],
             'xs' => [
                 'data1' => 'axis',
                 'data2' => 'axis',
