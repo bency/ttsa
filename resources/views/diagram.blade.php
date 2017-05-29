@@ -12,6 +12,9 @@
     <script>
 var chart = c3.generate({
     bindto: '#everything',
+    size: {
+        height: 800
+    },
     data: {
         xFormat: '%Y',
         columns: []
