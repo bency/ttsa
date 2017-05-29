@@ -26,6 +26,9 @@ var chart = c3.generate({
     legend: {
         position: 'right'
     },
+    subchart: {
+        show: true,
+    },
     axis: {
         x: {
             type: "timeseries",
