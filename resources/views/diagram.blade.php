@@ -40,6 +40,9 @@ var chart = c3.generate({
     },
     subchart: {
         show: true,
+        size: {
+            height: 200,
+        }
     },
     axis: {
         x: {
