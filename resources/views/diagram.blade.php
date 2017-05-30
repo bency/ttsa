@@ -26,9 +26,6 @@ var chart = c3.generate({
         enabled: true,
         rescale: true
     },
-    legend: {
-        position: 'right'
-    },
     grid: {
         x: {
             lines: [
