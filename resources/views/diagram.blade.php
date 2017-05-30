@@ -73,6 +73,9 @@ var accidentChart = c3.generate({
     size: {
         height: 1000
     },
+    legend: {
+        show: false,
+    },
     data: {
         columns: [
         ],
