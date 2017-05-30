@@ -108,7 +108,7 @@ var accidentChart = c3.generate({
         },
         y: {
             max: 2,
-            label: "每萬輛涉及人數比例"
+            label: "每萬輛涉及人數"
         }
     },
     grid: {
