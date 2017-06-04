@@ -20,18 +20,21 @@ class DiagramController extends Controller
             'a11' => '肇事率',
             'a12' => '死亡率',
             'a13' => '受傷率',
+            'a14' => '涉入率',
         ];
         $columns = [
             $axis,
             ['a11',0.59,0.53,0.26],
             ['a12',0.64,0.54,0.26],
             ['a13',0.36,0.20,0.05],
+            ['a14',70.94,155.2,10.85],
 
         ];
         $xs = [
             'a11' => 'a1accident_axis',
             'a12' => 'a1accident_axis',
             'a13' => 'a1accident_axis',
+            'a14' => 'a1accident_axis',
         ];
         $hide = [
         ];
