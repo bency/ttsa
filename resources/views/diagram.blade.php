@@ -139,8 +139,10 @@ var a1accidentChart = c3.generate({
             type: 'category'
         },
         y: {
-            max: 2,
             label: "件/每萬輛"
+        },
+        y2: {
+            show: true,
         }
     },
 });

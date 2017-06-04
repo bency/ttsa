@@ -36,6 +36,12 @@ class DiagramController extends Controller
             'a13' => 'a1accident_axis',
             'a14' => 'a1accident_axis',
         ];
+        $axes = [
+            'a11' => 'y',
+            'a12' => 'y',
+            'a13' => 'y',
+            'a14' => 'y2',
+        ];
         $hide = [
         ];
         $ret = [
@@ -44,6 +50,7 @@ class DiagramController extends Controller
             'type' => 'bar',
             'names' => $names,
             'hide' => $hide,
+            'axes' => $axes,
         ];
         return response()->json($ret);
     }
