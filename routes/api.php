@@ -19,3 +19,4 @@ Route::get('/user', function (Request $request) {
 Route::get('/driverlicenses', 'DiagramController@driverLicenses');
 Route::get('/vehicles', 'DiagramController@vehicles');
 Route::get('/accident-ratio', 'DiagramController@accidentRatio');
+Route::get('/accident-a1', 'DiagramController@a1Ratio');

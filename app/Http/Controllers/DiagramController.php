@@ -11,6 +11,40 @@ class DiagramController extends Controller
         return view('diagram');
     }
 
+    public function a1Ratio()
+    {
+        $axis = [
+            'a1accident_axis', '自用大客車','營業大客車','自用小客車','營業小客車','自用大貨車','營業大貨車','自用小貨車','營業小貨車','特種車','重型機車','輕型機車',
+        ];
+        $names = [
+            'a11' => '肇事率',
+            'a12' => '死亡率',
+            'a13' => '受傷率',
+        ];
+        $columns = [
+            $axis,
+            ['a11',6.06,9.83,0.59,1.57,5.98,13.24,1.63,1.32,0.16,0.53,0.26],
+            ['a12',6.06, 9.83, 0.64,1.71,6.50,13.24,1.66,1.32,0.16,0.54,0.26],
+            ['a13',0,8.91,0.36,1.42,5.14,3.38,0.67,0.53,0.16,0.20,0.05],
+
+        ];
+        $xs = [
+            'a11' => 'a1accident_axis',
+            'a12' => 'a1accident_axis',
+            'a13' => 'a1accident_axis',
+        ];
+        $hide = [
+        ];
+        $ret = [
+            'columns' => $columns,
+            'xs' => $xs,
+            'type' => 'bar',
+            'names' => $names,
+            'hide' => $hide,
+        ];
+        return response()->json($ret);
+    }
+
     public function accidentRatio()
     {
         $axis = [
