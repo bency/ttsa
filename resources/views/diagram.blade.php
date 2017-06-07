@@ -12,7 +12,7 @@
     <h1>各車種涉入事故比例</h1>
     <a class="pull-right" href="http://talas-pub.iot.gov.tw/MainQuery.aspx" target="_blank">來源 <span class="glyphicon glyphicon-share"></span></a>
     <section id="accident"></section>
-    <h1> 2016 A1類道路交通事故率－按車種分</h1>
+    <h1> 2015 道路交通事故率－按車種分</h1>
     <section id="a1accident"></section>
     <script>
 var chart = c3.generate({
