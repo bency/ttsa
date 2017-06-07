@@ -150,6 +150,7 @@ var a1accidentChart = c3.generate({
         },
         y2: {
             show: true,
+            label: "事故涉入率 件/萬輛",
         }
     },
 });
