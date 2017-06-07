@@ -129,6 +129,13 @@ var a1accidentChart = c3.generate({
     grid: {
         y: {
             show: true
+        },
+        y: {
+            lines: [
+                {value: 155.2, axis: 'y2', text: '重型機車事故涉入 件/萬輛', position: 'middle'},
+                {value: 70.94, axis: 'y2', text: '自用小客車事故涉入 件/萬輛', position: 'middle'},
+                {value: 10.85, axis: 'y2', text: '輕型機車事故涉入 件/萬輛', position: 'middle'},
+            ]
         }
     },
     size: {
