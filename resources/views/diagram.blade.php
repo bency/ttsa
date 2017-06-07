@@ -146,7 +146,7 @@ var a1accidentChart = c3.generate({
             type: 'category'
         },
         y: {
-            label: "件/每萬輛"
+            label: "肇事/事故/死亡率 件/萬輛",
         },
         y2: {
             show: true,
