@@ -2,12 +2,17 @@
 
 namespace App;
 
+use SammyK\LaravelFacebookSdk\SyncableGraphNodeTrait;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+    use SyncableGraphNodeTrait;
     use Notifiable;
+    protected static $graph_node_field_aliases = [
+        'id' => 'facebook_user_id',
+    ];
 
     /**
      * The attributes that are mass assignable.
@@ -25,5 +30,6 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password', 'remember_token',
+        'access_token',
     ];
 }
