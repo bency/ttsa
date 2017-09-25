@@ -14,4 +14,9 @@
 Route::resource('qa', 'QAController');
 Route::get('/', 'IndexController@random')->name('home');
 Route::get('/diagrams', 'DiagramController@index');
+
+Route::get('/logout', function () {
+    Auth::logout();
+    return redirect()->route('home');
+})->name('logout');
 Route::get('/{string}', 'IndexController@show');
