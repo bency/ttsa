@@ -19,4 +19,6 @@ Route::get('/logout', function () {
     Auth::logout();
     return redirect()->route('home');
 })->name('logout');
+
+Route::get('/facebook/login', 'FacebookController@login')->name('login');
 Route::get('/{string}', 'IndexController@show');
