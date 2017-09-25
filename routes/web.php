@@ -20,5 +20,7 @@ Route::get('/logout', function () {
     return redirect()->route('home');
 })->name('logout');
 
+// Endpoint that is redirected to after an authentication attempt
+Route::get('/facebook/callback', 'FacebookController@callback');
 Route::get('/facebook/login', 'FacebookController@login')->name('login');
 Route::get('/{string}', 'IndexController@show');
