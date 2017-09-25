@@ -12,6 +12,6 @@
 */
 
 Route::resource('qa', 'QAController');
-Route::get('/', 'IndexController@random');
+Route::get('/', 'IndexController@random')->name('home');
 Route::get('/diagrams', 'DiagramController@index');
 Route::get('/{string}', 'IndexController@show');
