@@ -43,7 +43,7 @@ class FetchPosts implements ShouldQueue
         }
         $data = $response->getGraphEdge();
         do {
-            foreach ($data->all() as $node) {
+            foreach ($data as $node) {
                 try {
                     $post = Post::createOrUpdateGraphNode($node);
                 } catch (\Illuminate\Database\QueryException $e) {

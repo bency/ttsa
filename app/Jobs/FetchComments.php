@@ -62,7 +62,7 @@ class FetchComments implements ShouldQueue
 
         $data = $response->getGraphEdge();
         do {
-            foreach ($data->all() as $node) {
+            foreach ($data as $node) {
 
                 $commenter = $node->asArray()['from'];
                 User::updateOrCreate(['facebook_user_id' => $commenter['id']], ['facebook_user_id' => $commenter['id'], 'name' => $commenter['name']]);
