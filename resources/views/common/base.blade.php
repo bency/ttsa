@@ -41,9 +41,10 @@
 				<li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}<span class="caret"></span></a>
 				  <ul class="dropdown-menu">
-					<li><a href="#">Action</a></li>
-					<li><a href="#">Another action</a></li>
-					<li><a href="#">Something else here</a></li>
+					<li role="separator" class="divider"></li>
+                      @foreach($account_list as $account)
+                          <li><a href="#">{{ $account->getProperty('name') }}</a></li>
+                      @endforeach
 					<li role="separator" class="divider"></li>
                     <li><a href="{{ route('logout') }}">登出</a></li>
 				  </ul>
