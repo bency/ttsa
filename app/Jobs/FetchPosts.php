@@ -49,7 +49,7 @@ class FetchPosts implements ShouldQueue
                 } catch (\Illuminate\Database\QueryException $e) {
                     dd($e->getMessage(), $node->asArray());
                 }
-                $id = $node->all()['id'];
+                $id = $node->getProperty('id');
                 dispatch((new FetchComments($id, $this->token))->onQueue('processing')->onConnection('database'));
             }
         } while ($data = $fb->next($data));

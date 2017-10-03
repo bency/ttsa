@@ -64,7 +64,7 @@ class FetchComments implements ShouldQueue
         do {
             foreach ($data as $node) {
 
-                $commenter = $node->asArray()['from'];
+                $commenter = $node->getProperty('from');
                 User::updateOrCreate(['facebook_user_id' => $commenter['id']], ['facebook_user_id' => $commenter['id'], 'name' => $commenter['name']]);
                 $comment = Comment::createOrUpdateGraphNode($node);
                 if (!$comment->parent) {
@@ -79,7 +79,7 @@ class FetchComments implements ShouldQueue
                 $comments_data = $node['comments'];
                 do {
                     foreach ($comments_data as $node) {
-                        $commenter = $node->asArray()['from'];
+                        $commenter = $node->getProperty('from');
                         User::updateOrCreate(['facebook_user_id' => $commenter['id']], ['facebook_user_id' => $commenter['id'], 'name' => $commenter['name']]);
                         $comment = Comment::createOrUpdateGraphNode($node);
                         if (!$comment->parent) {
