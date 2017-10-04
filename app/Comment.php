@@ -9,8 +9,9 @@ class Comment extends Model
 {
     use SyncableGraphNodeTrait;
     public $incrementing = false;
+    protected $dateFormat = 'U';
 
-    protected static $graph_node_date_time_to_string_format = 'Y-m-d H:i:s';
+    protected static $graph_node_date_time_to_string_format = 'U';
     protected static $graph_node_fillable_fields = [
         'id',
         'from_id',

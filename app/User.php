@@ -10,9 +10,11 @@ class User extends Authenticatable
 {
     use SyncableGraphNodeTrait;
     use Notifiable;
+    protected $dateFormat = 'U';
     protected static $graph_node_field_aliases = [
         'id' => 'facebook_user_id',
     ];
+    protected static $graph_node_date_time_to_string_format = 'U';
 
     /**
      * The attributes that are mass assignable.
