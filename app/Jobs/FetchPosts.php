@@ -46,7 +46,6 @@ class FetchPosts implements ShouldQueue
             'comment_count',
             'can_comment',
             'created_time',
-            'like_count',
             'likes',
             'permalink_url',
             'is_hidden',
