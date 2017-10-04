@@ -39,6 +39,9 @@ class FetchPosts implements ShouldQueue
         $comment_fields = [
             'id',
             'from',
+            'type',
+            'link',
+            'picture',
             'message',
             'comment_count',
             'can_comment',
