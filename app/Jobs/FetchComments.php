@@ -4,6 +4,7 @@ namespace App\Jobs;
 
 use App\Comment;
 use App\User;
+use App\FacebookTrait\Helper;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -12,7 +13,7 @@ use SammyK\LaravelFacebookSdk\LaravelFacebookSdk;
 
 class FetchComments implements ShouldQueue
 {
-    use InteractsWithQueue, Queueable, SerializesModels;
+    use InteractsWithQueue, Queueable, SerializesModels, Helper;
 
     private $comment_id = null;
     private $token = null;
@@ -51,9 +52,22 @@ class FetchComments implements ShouldQueue
             'permalink_url',
             'parent',
             'is_hidden',
+            'comments' => [
+                'id',
+                'from',
+                'message',
+                'comment_count',
+                'can_comment',
+                'created_time',
+                'like_count',
+                'likes',
+                'permalink_url',
+                'parent',
+                'is_hidden',
+            ],
         ];
-        $fields = implode(',', $fields);
-        $uri = sprintf('/%s/comments?fields=is_hidden,parent,created_time,comment_count,from,message,permalink_url,like_count,comments{%s}', $this->comment_id, $fields);
+        $fields = $this->formatFields($fields);
+        $uri = sprintf('/%s/comments?fields=%s', $this->comment_id, $fields);
         try {
             $response = $fb->get($uri);
         } catch (Facebook\Exceptions\FacebookSDKException $e) {

@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Post;
+use App\FacebookTrait\Helper;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -11,7 +12,7 @@ use SammyK\LaravelFacebookSdk\LaravelFacebookSdk;
 
 class FetchPosts implements ShouldQueue
 {
-    use InteractsWithQueue, Queueable, SerializesModels;
+    use InteractsWithQueue, Queueable, SerializesModels, Helper;
 
     private $fb_id = null;
     private $token = null;
@@ -35,9 +36,22 @@ class FetchPosts implements ShouldQueue
      */
     public function handle(LaravelFacebookSdk $fb)
     {
+        $comment_fields = [
+            'id',
+            'from',
+            'message',
+            'comment_count',
+            'can_comment',
+            'created_time',
+            'like_count',
+            'likes',
+            'permalink_url',
+            'is_hidden',
+        ];
+        $comment_fields = $this->formatFields($comment_fields);
         $fb->setDefaultAccessToken($this->token);
         try {
-            $response = $fb->get("{$this->fb_id}/feed?fields=from,message,id,created_time,permalink_url,comments{id},likes{id,link,name},picture,admin_creator,type,link,shares");
+            $response = $fb->get("{$this->fb_id}/feed?fields={$comment_fields}");
         } catch (Facebook\Exceptions\FacebookSDKException $e) {
             dd($e->getMessage());
         }
