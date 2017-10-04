@@ -24,12 +24,12 @@
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
 			  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-				<span class="sr-only">台灣交通安全協會</span>
+				<span class="sr-only">{{ env('APP_NAME') }}</span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			  </button>
-			  <a class="navbar-brand" href="#">台灣交通安全協會</a>
+			  <a class="navbar-brand" href="#">{{ env('APP_NAME') }}</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
