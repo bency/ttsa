@@ -70,6 +70,9 @@ class FetchPosts implements ShouldQueue
                 // 處理貼文的按贊數
                 $likes = $node->getProperty('likes');
                 do {
+                    if (!$likes) {
+                        break;
+                    }
                     $post->like_count += $likes->count();
                 } while ($likes = $fb->next($likes));
                 $post->save();
