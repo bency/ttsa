@@ -12,7 +12,7 @@
 */
 
 Route::resource('qa', 'QAController');
-Route::get('/', 'IndexController@random')->name('home');
+Route::get('/', 'IndexController@dashboard')->name('home');
 Route::get('/diagrams', 'DiagramController@index');
 
 Route::get('/logout', function () {
