@@ -14,7 +14,7 @@ class FetchLikes implements ShouldQueue
 {
     use InteractsWithQueue, Queueable, SerializesModels, Helper;
 
-    private $post_id = null;
+    private $post_ids = null;
     private $token = null;
     private $options = [];
 
@@ -23,9 +23,9 @@ class FetchLikes implements ShouldQueue
      *
      * @return void
      */
-    public function __construct($post_id, $token, array $options = [])
+    public function __construct($post_ids, $token, array $options = [])
     {
-        $this->post_id = $post_id;
+        $this->post_ids = $post_ids;
         $this->token = $token;
     }
 
@@ -36,27 +36,23 @@ class FetchLikes implements ShouldQueue
      */
     public function handle(LaravelFacebookSdk $fb)
     {
-        $comment_fields = [
-            'id',
-            'likes',
-        ];
-        $comment_fields = $this->formatFields($comment_fields);
         $fb->setDefaultAccessToken($this->token);
         try {
-            $response = $fb->get("{$this->post_id}?fields={$comment_fields}");
+            $response = $fb->get("/likes?ids={$this->post_ids}");
         } catch (Facebook\Exceptions\FacebookSDKException $e) {
             dd($e->getMessage());
         }
         $data = $response->getGraphNode();
-        $post = Post::find($this->post_id);
-        $post->update(['like_count' => 0]);
-        $likes = $data->getProperty('likes');
-        do {
-            if (!$likes) {
-                break;
-            }
-            $post->like_count += $likes->count();
-        } while ($likes = $fb->next($likes));
-        $post->save();
+        foreach ($data as $post_id => $likes) {
+            $post = Post::find($post_id);
+            $post->update(['like_count' => 0]);
+            do {
+                if (!$likes) {
+                    break;
+                }
+                $post->like_count += $likes->count();
+            } while ($likes = $fb->next($likes));
+            $post->save();
+        }
     }
 }
