@@ -62,18 +62,9 @@ class FetchPosts implements ShouldQueue
             foreach ($data as $node) {
                 try {
                     $post = Post::createOrUpdateGraphNode($node);
-                    $post->update(['like_count' => 0]);
                 } catch (\Illuminate\Database\QueryException $e) {
                     dd($e->getMessage(), $node->asArray());
                 }
-
-                // 處理貼文的按贊數
-                $likes = $node->getProperty('likes');
-                do {
-                    $post->like_count += $likes->count();
-                } while ($likes = $fb->next($likes));
-                $post->save();
-
                 $id = $node->getProperty('id');
                 dispatch((new FetchComments($id, $this->token))->onQueue('processing')->onConnection('database'));
             }
