@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use Carbon\Carbon;
 use App\Post;
 use App\FacebookTrait\Helper;
 use Illuminate\Bus\Queueable;
@@ -67,6 +68,7 @@ class FetchPosts implements ShouldQueue
                 }
                 $id = $node->getProperty('id');
                 dispatch((new FetchComments($id, $this->token))->onQueue('processing')->onConnection('database'));
+                dispatch((new FetchLikes($id, $this->token))->delay(Carbon::now()->addMinutes(10))->onQueue('processing')->onConnection('database'));
             }
         } while ($data = $fb->next($data));
     }
