@@ -30,4 +30,15 @@ Route::get('/facebook/fetch/{fb_id}', function($fb_id)
     $ret = dispatch((new FetchPosts($fb_id, $token)));
     return response($ret);
 });
+Route::get('/facebook/hook', function(Request $request)
+{
+    $hub_mode = $request->input('hub_mode');
+    if ('subscribe' !== $hub_mode) {
+        return abort(404);
+    }
+    if ('hook' !== $request->input('hub_verify_token')) {
+        return abort(404);
+    }
+    return response($request->input('hub_challenge'));
+});
 Route::get('/{string}', 'IndexController@show');
