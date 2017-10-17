@@ -35,5 +35,14 @@ class Comment extends Model
         'created_time',
     ];
     protected $table = 'facebook_comments';
-    //
+
+    public function comments()
+    {
+        return $this->hasMany('App\Comment', 'parent');
+    }
+
+    public function comment()
+    {
+        return $this->belongsTo('App\Comment', 'parent');
+    }
 }
