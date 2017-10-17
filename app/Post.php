@@ -37,5 +37,9 @@ class Post extends Model
         'link',
     ];
     protected $table = 'facebook_posts';
-    //
+
+    public function comments()
+    {
+        return $this->hasMany('App\Comment', 'parent');
+    }
 }
