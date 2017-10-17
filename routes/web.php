@@ -1,5 +1,6 @@
 <?php
 
+use App\Jobs\FetchPosts;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,4 +24,10 @@ Route::get('/logout', function () {
 // Endpoint that is redirected to after an authentication attempt
 Route::get('/facebook/callback', 'FacebookController@callback');
 Route::get('/facebook/login', 'FacebookController@login')->name('login');
+Route::get('/facebook/fetch/{fb_id}', function($fb_id)
+{
+    $token = Session::get('fb_user_access_token');
+    $ret = dispatch((new FetchPosts($fb_id, $token)));
+    return response($ret);
+});
 Route::get('/{string}', 'IndexController@show');
