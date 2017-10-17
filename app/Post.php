@@ -42,4 +42,9 @@ class Post extends Model
     {
         return $this->hasMany('App\Comment', 'parent');
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User', 'from_id');
+    }
 }
