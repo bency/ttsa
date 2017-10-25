@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use Illuminate\Http\Request;
 
 class PostController
 {
-    public function index()
+    public function index(Request $request)
     {
-        $post = Post::where('from_id', '=', '780629588719400')->where('type', '!=', 'event')->orderBy('like_count', 'desc')->paginate(10);
+        $type = $request->input('type');
+        $post = Post::where('from_id', '=', '780629588719400')->where('type', '=', $type)->orderBy('created_time', 'desc')->paginate(10);
         return response()->json($post);
     }
 }
