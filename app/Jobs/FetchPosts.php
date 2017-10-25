@@ -71,6 +71,10 @@ class FetchPosts implements ShouldQueue
                 $id = $node->getProperty('id');
                 $ids[] = $id;
                 dispatch((new FetchComments($id))->onQueue('processing')->onConnection('database'));
+                if (count($ids) == 50) {
+                    dispatch((new FetchLikes(implode(',', $ids)))->onQueue('processing')->onConnection('database'));
+                    $ids = [];
+                }
             }
             dispatch((new FetchLikes(implode(',', $ids)))->onQueue('processing')->onConnection('database'));
         } while ($data = $fb->next($data));
