@@ -9,7 +9,7 @@ class PostController
 {
     public function index(Request $request)
     {
-        $type = $request->input('type');
+        $type = $request->input('type', 'video');
         $post = Post::where('from_id', '=', '780629588719400')->where('type', '=', $type)->orderBy('created_time', 'desc')->paginate(10);
         return response()->json($post);
     }
