@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Post;
+use App\Facebook\Token;
 use App\FacebookTrait\Helper;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
@@ -23,10 +24,10 @@ class FetchLikes implements ShouldQueue
      *
      * @return void
      */
-    public function __construct($post_ids, $token, array $options = [])
+    public function __construct($post_ids, array $options = [])
     {
         $this->post_ids = $post_ids;
-        $this->token = $token;
+        $this->token = Token::getValidToken();
     }
 
     /**
@@ -36,10 +37,11 @@ class FetchLikes implements ShouldQueue
      */
     public function handle(LaravelFacebookSdk $fb)
     {
-        $fb->setDefaultAccessToken($this->token);
+        $fb->setDefaultAccessToken($this->token->token);
         try {
             $response = $fb->get("/likes?ids={$this->post_ids}");
         } catch (Facebook\Exceptions\FacebookSDKException $e) {
+            $this->token->delete();
             dd($e->getMessage());
         }
         $data = $response->getGraphNode();

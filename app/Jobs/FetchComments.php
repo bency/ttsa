@@ -4,6 +4,7 @@ namespace App\Jobs;
 
 use App\Comment;
 use App\User;
+use App\Facebook\Token;
 use App\FacebookTrait\Helper;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
@@ -24,9 +25,9 @@ class FetchComments implements ShouldQueue
      *
      * @return void
      */
-    public function __construct($comment_id, $token, array $options = [])
+    public function __construct($comment_id, array $options = [])
     {
-        $this->token = $token;
+        $this->token = Token::getValidToken();
         $this->comment_id = $comment_id;
         $this->options = $options;
     }
@@ -38,7 +39,7 @@ class FetchComments implements ShouldQueue
      */
     public function handle(\SammyK\LaravelFacebookSdk\LaravelFacebookSdk $fb)
     {
-        $token = $this->token;
+        $token = $this->token->token;
         $fb->setDefaultAccessToken($token);
         $fields = [
             'id',
@@ -71,6 +72,7 @@ class FetchComments implements ShouldQueue
         try {
             $response = $fb->get($uri);
         } catch (Facebook\Exceptions\FacebookSDKException $e) {
+            $this->token->delete();
             dd($e->getMessage());
         }
 

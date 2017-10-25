@@ -4,6 +4,7 @@ namespace App\Jobs;
 
 use Carbon\Carbon;
 use App\Post;
+use App\Facebook\Token;
 use App\FacebookTrait\Helper;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
@@ -24,10 +25,10 @@ class FetchPosts implements ShouldQueue
      *
      * @return void
      */
-    public function __construct($fb_id, $token, array $options = [])
+    public function __construct($fb_id, array $options = [])
     {
         $this->fb_id = $fb_id;
-        $this->token = $token;
+        $this->token = Token::getValidToken();
     }
 
     /**
@@ -52,10 +53,11 @@ class FetchPosts implements ShouldQueue
             'is_hidden',
         ];
         $comment_fields = $this->formatFields($comment_fields);
-        $fb->setDefaultAccessToken($this->token);
+        $fb->setDefaultAccessToken($this->token->token);
         try {
             $response = $fb->get("{$this->fb_id}/feed?fields={$comment_fields}");
         } catch (Facebook\Exceptions\FacebookSDKException $e) {
+            $this->token->delete();
             dd($e->getMessage());
         }
         $data = $response->getGraphEdge();
@@ -68,9 +70,9 @@ class FetchPosts implements ShouldQueue
                 }
                 $id = $node->getProperty('id');
                 $ids[] = $id;
-                dispatch((new FetchComments($id, $this->token))->onQueue('processing')->onConnection('database'));
+                dispatch((new FetchComments($id))->onQueue('processing')->onConnection('database'));
             }
-            dispatch((new FetchLikes(implode(',', $ids), $this->token))->delay(Carbon::now()->addHours(1))->onQueue('processing')->onConnection('database'));
+            dispatch((new FetchLikes(implode(',', $ids)))->delay(Carbon::now()->addHours(1))->onQueue('processing')->onConnection('database'));
         } while ($data = $fb->next($data));
     }
 }

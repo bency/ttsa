@@ -27,7 +27,7 @@ Route::get('/facebook/login', 'FacebookController@login')->name('login');
 Route::get('/facebook/fetch/{fb_id}', function($fb_id)
 {
     $token = Session::get('fb_user_access_token');
-    $ret = dispatch((new FetchPosts($fb_id, $token)));
+    $ret = dispatch((new FetchPosts($fb_id)));
     return response($ret);
 });
 Route::get('/facebook/hook', function(Request $request)
