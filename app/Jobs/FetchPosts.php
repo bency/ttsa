@@ -72,7 +72,7 @@ class FetchPosts implements ShouldQueue
                 $ids[] = $id;
                 dispatch((new FetchComments($id))->onQueue('processing')->onConnection('database'));
             }
-            dispatch((new FetchLikes(implode(',', $ids)))->delay(Carbon::now()->addHours(1))->onQueue('processing')->onConnection('database'));
+            dispatch((new FetchLikes(implode(',', $ids)))->onQueue('processing')->onConnection('database'));
         } while ($data = $fb->next($data));
     }
 }
