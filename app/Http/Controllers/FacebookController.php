@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Session;
 use Auth;
 use App\User;
+use App\Facebook\Token;
 use SammyK\LaravelFacebookSdk\LaravelFacebookSdk;
 
 class FacebookController extends Controller
@@ -76,6 +77,12 @@ class FacebookController extends Controller
         // Create the user if it does not exist or update the existing entry.
         // This will only work if you've added the SyncableGraphNodeTrait to your User model.
         $user = User::createOrUpdateGraphNode($facebook_user);
+        try {
+            $fb_token = Token::firstOrFail();
+            $fb_token->update(['token' => $token]);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            Token::create(['token' => $token]);
+        }
 
         // Log the user into Laravel
         Auth::login($user);
