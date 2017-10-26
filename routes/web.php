@@ -30,6 +30,7 @@ Route::get('/facebook/fetch/{fb_id}', function($fb_id)
     $ret = dispatch((new FetchPosts($fb_id, ['type' => 'FETCH_NEW_POST'])));
     return response($ret);
 });
+Route::get('/traffic/predict', 'TrafficController@predict')->name('traffic-predict');
 Route::get('/facebook/hook', function(Request $request)
 {
     $hub_mode = $request->input('hub_mode');
