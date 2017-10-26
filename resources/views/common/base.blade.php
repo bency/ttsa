@@ -5,7 +5,6 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta property="og:url" content="{{ url()->current() }}">
-        @yield('inhead')
         <meta property="og:title" content="{{ isset($qa) ? $qa->subject : ''}}">
         <meta property="og:description" content="{{ isset($qa) ? $qa->response : '' }}">
 
@@ -17,6 +16,7 @@
         <!-- Styles -->
         <link href="{{ asset('/css/app.css') }}" rel="stylesheet" type="text/css">
         <script src="{{ asset('/js/app.js') }}"></script>
+        @yield('inhead')
     </head>
     <body>
 		<nav class="navbar navbar-default">
