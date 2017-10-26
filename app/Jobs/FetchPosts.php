@@ -19,6 +19,7 @@ class FetchPosts implements ShouldQueue
     private $fb_id = null;
     private $token = null;
     private $options = [];
+    private $type = '';
 
     /**
      * Create a new job instance.
@@ -28,6 +29,7 @@ class FetchPosts implements ShouldQueue
     public function __construct($fb_id, array $options = [])
     {
         $this->fb_id = $fb_id;
+        $this->type = $options['type'];
         $this->token = Token::getValidToken();
     }
 
@@ -63,12 +65,17 @@ class FetchPosts implements ShouldQueue
         $data = $response->getGraphEdge();
         do {
             foreach ($data as $node) {
+                $id = $node->getProperty('id');
+
+                // 舊文章由 cron 負責處理
+                if (('FETCH_NEW_POST' === $this->type) and ($post = Post::find($id))) {
+                    continue;
+                }
                 try {
                     $post = Post::createOrUpdateGraphNode($node);
                 } catch (\Illuminate\Database\QueryException $e) {
                     dd($e->getMessage(), $node->asArray());
                 }
-                $id = $node->getProperty('id');
                 $ids[] = $id;
                 dispatch((new FetchComments($id))->onQueue('processing')->onConnection('database'));
                 if (count($ids) == 50) {
