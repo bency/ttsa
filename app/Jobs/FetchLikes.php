@@ -37,9 +37,6 @@ class FetchLikes implements ShouldQueue
      */
     public function handle(LaravelFacebookSdk $fb)
     {
-        if ('' == $this->post_ids) {
-            return;
-        }
         $fb->setDefaultAccessToken($this->token->token);
         try {
             $response = $fb->get("/likes?ids={$this->post_ids}");
