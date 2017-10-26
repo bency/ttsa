@@ -64,6 +64,7 @@ class FetchPosts implements ShouldQueue
         }
         $data = $response->getGraphEdge();
         do {
+            $ids = [];
             foreach ($data as $node) {
                 $id = $node->getProperty('id');
 
