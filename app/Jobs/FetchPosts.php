@@ -76,7 +76,9 @@ class FetchPosts implements ShouldQueue
                     $ids = [];
                 }
             }
-            dispatch((new FetchLikes(implode(',', $ids)))->onQueue('processing')->onConnection('database'));
+            if ($ids) {
+                dispatch((new FetchLikes(implode(',', $ids)))->onQueue('processing')->onConnection('database'));
+            }
         } while ($data = $fb->next($data));
     }
 }
