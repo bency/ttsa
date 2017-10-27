@@ -22,7 +22,7 @@
                 let width2 = ((phase + red) <= period) ? red : (phase + red - period);
                 let width3 = (phase <= green) ? (green - phase) : green;
                 let width4 = ((phase + red) <= period) ? 0 : (period - phase);
-                let countDown = width4 ? width4 : width3;
+                let countDown = (width4) ? period - width1 - width2 - width3 : period - width1 - width2;
                 $('#countdown-' + id).text(countDown);
                 progress1.css("width", Math.floor(width1 * 100 / period) + '%');
                 progress2.css("width", Math.floor(width2 * 100 / period) + '%');
