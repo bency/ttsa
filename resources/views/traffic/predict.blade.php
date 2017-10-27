@@ -46,6 +46,10 @@
         $(document).on('click', '.start-cal', startOver);
         $(document).on('change', '.period-control', startOver);
         $(document).on('click', '.progress', toggleForm);
+        $(document).ready(function () {
+            start(1);
+            start(2);
+        });
     </script>
 @endsection
 @section('container')
