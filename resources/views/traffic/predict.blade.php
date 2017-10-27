@@ -1,17 +1,17 @@
 @extends('common.base')
 @section('inhead')
     <script>
-        var intervalId = 0;
+        var intervalId = [0, 0, 0];
         var start = function (id) {
             let green = parseInt($('#green-' + id).val()),
                 red = parseInt($('#red-' + id).val()),
                 offset = parseInt($('#offset-' + id).val());
-                period = green + red,
                 year = (new Date).getFullYear(),
                 month = (new Date).getMonth() + 1,
                 day = (new Date).getDate(),
                 phaseBegin = Date.parse(year + '/' + month + '/' + day + ' 00:00:00') / 1000 - offset;
-            intervalId = setInterval(function () {
+            intervalId[id] = setInterval(function () {
+                let period = green + red;
                 let now = (new Date).getTime() / 1000;
                 let phase = Math.floor((now - phaseBegin) % period);
                 let progress1 = $('#progress-' + id + '-1');
@@ -31,10 +31,10 @@
             }, 1000);
         };
         var startOver = function () {
-            if (intervalId) {
-                clearInterval(intervalId);
-            }
             let id = $(this).data('id');
+            if (intervalId[id]) {
+                clearInterval(intervalId[id]);
+            }
             start(id);
         };
         var toggleForm = function () {
