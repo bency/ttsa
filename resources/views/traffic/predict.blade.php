@@ -92,6 +92,7 @@
             <button class="btn btn-primary btn-offset" type="button" data-type="plus" data-id="1"><span class="glyphicon glyphicon-plus"></span></button>
         </div>
     </div>
+    <div class="row">
     <div class="col-xs-10">
         <div class="progress" data-id="1">
             <div id="progress-1-1" class="progress-bar progress-bar-success">
@@ -106,6 +107,7 @@
     </div>
     <div class="col-xs-2">
         <span id="countdown-1"></span>
+    </div>
     </div>
     <div class="col-md-12" id="form-2">
         <div class="form-inline">
@@ -135,6 +137,7 @@
             <button class="btn btn-primary btn-offset" type="button" data-type="plus" data-id="2"><span class="glyphicon glyphicon-plus"></span></button>
         </div>
     </div>
+    <div class="row">
     <div class="col-xs-10">
         <div class="progress" data-id="2">
             <div id="progress-2-1" class="progress-bar progress-bar-success">
@@ -149,5 +152,6 @@
     </div>
     <div class="col-xs-2">
         <span id="countdown-2"></span>
+    </div>
     </div>
 @endsection
