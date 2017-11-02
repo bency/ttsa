@@ -28,7 +28,7 @@
                 progress2.css("width", Math.floor(width2 * 100 / period) + '%');
                 progress3.css("width", Math.floor(width3 * 100 / period) + '%');
                 progress4.css("width", Math.floor(width4 * 100 / period) + '%');
-            }, 1000);
+            }, 100);
         };
         var startOver = function (i) {
             let id = i || $(this).data('id');
