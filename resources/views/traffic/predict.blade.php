@@ -43,7 +43,6 @@
             $('#location-input-' + id).text($('#location-' + id).val());
             $('#location-label-' + id).toggle();
         };
-        $(document).on('click', '.start-cal', startOver);
         $(document).on('change', '.period-control', startOver);
         $(document).on('click', '.progress', toggleForm);
         $(document).on('click', '.btn-offset', function () {
@@ -82,7 +81,6 @@
                 <label>延遲</label>
                 <input type="number" class="form-control period-control" id="offset-1" data-id="1" placeholder="offset" value="0">
             </div>
-            <button class="btn btn-primary start-cal" data-id="1" type="button">開始計時</button>
         </div>
     </div>
     <div class="col-xs-12" id="location-label-1" style="display: none;">
@@ -127,7 +125,6 @@
                 <label>延遲</label>
                 <input type="number" class="form-control period-control" id="offset-2" data-id="2" placeholder="offset" value="0">
             </div>
-            <button class="btn btn-primary start-cal" data-id="2" type="button">開始計時</button>
         </div>
     </div>
     <div class="col-xs-12" id="location-label-2" style="display: none;">
