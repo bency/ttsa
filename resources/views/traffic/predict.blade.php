@@ -71,11 +71,11 @@
             </div>
             <div class="form-group">
                 <label>綠燈時間</label>
-                <input type="number" class="form-control period-control" id="green-1" data-id="1" placeholder="green" value="20">
+                <input type="number" class="form-control period-control" id="green-1" data-id="1" placeholder="green" value="75">
             </div>
             <div class="form-group">
                 <label>紅燈時間</label>
-                <input type="number" class="form-control period-control" id="red-1" data-id="1" placeholder="red" value="130">
+                <input type="number" class="form-control period-control" id="red-1" data-id="1" placeholder="red" value="125">
             </div>
             <div class="form-group">
                 <label>延遲</label>
@@ -111,15 +111,15 @@
         <div class="form-inline">
             <div class="form-group">
                 <label>路口</label>
-                <input type="text" class="form-control" id="location-2" data-id="1" placeholder="green" value="市民大道承德路路口">
+                <input type="text" class="form-control" id="location-2" data-id="1" placeholder="green" value="市民大道中山北路路口">
             </div>
             <div class="form-group">
                 <label>綠燈時間</label>
-                <input type="number" class="form-control period-control" id="green-2" data-id="2" placeholder="green" value="20">
+                <input type="number" class="form-control period-control" id="green-2" data-id="2" placeholder="green" value="65">
             </div>
             <div class="form-group">
                 <label>紅燈時間</label>
-                <input type="number" class="form-control period-control" id="red-2" data-id="2" placeholder="red" value="130">
+                <input type="number" class="form-control period-control" id="red-2" data-id="2" placeholder="red" value="115">
             </div>
             <div class="form-group">
                 <label>延遲</label>
