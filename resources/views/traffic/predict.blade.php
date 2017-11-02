@@ -1,5 +1,5 @@
 @extends('common.base')
-@section('inhead')
+@section('inbody')
     <script>
         var intervalId = [0, 0, 0];
         var start = function (id) {
