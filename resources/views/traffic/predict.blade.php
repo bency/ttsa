@@ -5,13 +5,13 @@
         var start = function (id) {
             let green = parseInt($('#green-' + id).val()),
                 red = parseInt($('#red-' + id).val()),
-                offset = parseInt($('#offset-' + id).val());
                 year = (new Date).getFullYear(),
                 month = (new Date).getMonth() + 1,
-                day = (new Date).getDate(),
-                phaseBegin = Date.parse(year + '/' + month + '/' + day + ' 00:00:00') / 1000 - offset;
+                day = (new Date).getDate();
             intervalId[id] = setInterval(function () {
                 let period = green + red;
+                let offset = parseInt($('#offset-' + id).val());
+                let phaseBegin = Date.parse(year + '/' + month + '/' + day + ' 00:00:00') / 1000 - offset;
                 let now = (new Date).getTime() / 1000;
                 let phase = Math.floor((now - phaseBegin) % period);
                 let progress1 = $('#progress-' + id + '-1');
