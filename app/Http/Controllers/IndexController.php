@@ -25,4 +25,9 @@ class IndexController extends Controller
         $like_posts = Post::where('from_id', '=', '780629588719400')->where('type', '!=', 'event')->orderBy('like_count', 'desc')->paginate(10);
         return view('dashboard', ['like_posts' => $like_posts]);
     }
+
+    public function home()
+    {
+        return view('home');
+    }
 }
