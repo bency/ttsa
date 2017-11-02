@@ -60,5 +60,6 @@
         <div class="container">
             @yield('container')
         </div>
+        @yield('inbody')
     </body>
 </html>
