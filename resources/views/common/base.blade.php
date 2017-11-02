@@ -59,6 +59,10 @@
 		</nav>
         <div class="container">
             @yield('container')
+            <hr>
+            <footer>
+                <p class="text-center">台灣機車路權促進會版權所有 © 2017</p>
+            </footer>
         </div>
         @yield('inbody')
     </body>
