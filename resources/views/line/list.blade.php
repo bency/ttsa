@@ -10,10 +10,10 @@
         </tr>
         @foreach($redirect::all() as $r)
         <tr>
-            <th>{{ $r->id }}</th>
-            <th><input class="form-control" type="text" value="{{ url('/') . '/group/' . $r->path }}"></th>
-            <th>{{ $r->url }}</th>
-            <th><a class="btn btn->primary" href="{{ route('line.edit', ['id' => $r->id]) }}"><span class=""></span>編輯</a></th>
+            <td>{{ $r->id }}</td>
+            <td><input class="form-control" type="text" value="{{ url('/') . '/group/' . $r->path }}"></td>
+            <td>{{ $r->url }}</td>
+            <td><a class="btn btn->primary" href="{{ route('line.edit', ['id' => $r->id]) }}"><span class=""></span>編輯</a></td>
         </tr>
         @endforeach
     </table>
