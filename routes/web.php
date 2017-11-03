@@ -15,6 +15,7 @@ use App\Jobs\FetchPosts;
 Route::resource('qa', 'QAController');
 Route::get('/', 'IndexController@home')->name('home');
 Route::get('/diagrams', 'DiagramController@index');
+Route::resource('/line', 'LineController');
 
 Route::get('/logout', function () {
     Auth::logout();
