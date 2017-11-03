@@ -55,4 +55,14 @@ class LineController extends Controller
         $redirect->update(['path' => $request->input('path')]);
         return redirect()->route('line.index');
     }
+
+    public function destroy(Request $request, $id)
+    {
+        $redirect = Redirect::find($id);
+        if (!$redirect) {
+            return redirect()->route('home');
+        }
+        $redirect->delete();
+        return redirect()->route('line.index');
+    }
 }
