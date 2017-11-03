@@ -7,6 +7,15 @@ use App\Redirect;
 
 class LineController extends Controller
 {
+    public function redirect($path)
+    {
+        $redirect = Redirect::getByPath($path);
+        if (!$redirect) {
+            return redirect()->route('home');
+        }
+        return redirect($redirect->url);
+    }
+
     public function index(Request $request)
     {
         return view('line.list');
