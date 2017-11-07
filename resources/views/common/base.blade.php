@@ -36,6 +36,9 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li><a href="{{ route('traffic-predict') }}">燈號倒數</a></li>
+                    @if(Auth::check())
+                    <li><a href="{{ route('line.index') }}">line 群組短網址管理</a></li>
+                    @endif
                 </ul>
 			  <ul class="nav navbar-nav navbar-right">
 			    @if(!Auth::check())
