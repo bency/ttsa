@@ -31,7 +31,12 @@
             }, 100);
         };
         var startOver = function (i) {
-            let id = i || $(this).data('id');
+            let id = 0;
+            if (typeof i === 'object') {
+                id = $(this).data('id');
+            } else {
+                id = i;
+            }
             if (intervalId[id]) {
                 clearInterval(intervalId[id]);
             }
