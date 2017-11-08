@@ -3,12 +3,12 @@
     <script>
         var intervalId = [0, 0, 0];
         var start = function (id) {
-            let green = parseInt($('#green-' + id).val()),
-                red = parseInt($('#red-' + id).val()),
-                year = (new Date).getFullYear(),
+                let year = (new Date).getFullYear(),
                 month = (new Date).getMonth() + 1,
                 day = (new Date).getDate();
             intervalId[id] = setInterval(function () {
+                let green = parseInt($('#green-' + id).val()),
+                    red = parseInt($('#red-' + id).val());
                 let period = green + red;
                 let offset = parseInt($('#offset-' + id).val());
                 let phaseBegin = Date.parse(year + '/' + month + '/' + day + ' 00:00:00') / 1000 - offset;
