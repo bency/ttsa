@@ -1,4 +1,7 @@
 @extends('common.base')
+@section('inbody')
+    <script src="{{ asset('/js/fight-club.js') }}"></script>
+@endsection
 @section('container')
 <article>
     <div id="holder" class="text-center">
