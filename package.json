@@ -16,6 +16,7 @@
     "vue-resource": "^1.0.3"
   },
   "dependencies": {
+    "bootstrap-tagsinput": "https://github.com/bootstrap-tagsinput/bootstrap-tagsinput",
     "c3": "^0.4.11"
   }
 }
