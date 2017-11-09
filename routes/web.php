@@ -33,6 +33,7 @@ Route::get('/facebook/fetch/{fb_id}', function($fb_id)
     return response($ret);
 });
 Route::get('/traffic/predict', 'TrafficController@predict')->name('traffic-predict');
+Route::get('/fight/images', 'FightController@images')->name('fight-club');
 Route::get('/facebook/hook', function(Request $request)
 {
     $hub_mode = $request->input('hub_mode');
