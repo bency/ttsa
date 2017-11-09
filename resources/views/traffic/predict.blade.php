@@ -54,7 +54,7 @@
             $('#location-label-' + id).toggle();
         };
         $(document).on('change', '.period-control', startOver);
-        $(document).on('click', '.progress', toggleForm);
+        $('.progress').on('click', toggleForm);
         $(document).ready(function () {
             start(1);
             start(2);
