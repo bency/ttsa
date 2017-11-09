@@ -23,6 +23,8 @@
                     width3 = (phase <= green) ? (green - phase) : green,
                     width4 = ((phase + red) <= period) ? 0 : (period - phase),
                     countDown = (width4) ? period - width1 - width2 - width3 : period - width1 - width2;
+                $('#offset-' + id).prop('min', - parseInt(period / 2));
+                $('#offset-' + id).prop('max', parseInt(period / 2));
                 $('#show-red-' + id).text(red);
                 $('#show-green-' + id).text(green);
                 $('#show-offset-' + id).text(offset);
