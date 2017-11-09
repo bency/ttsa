@@ -11,6 +11,9 @@
     <p id="filereader">File API & FileReader API not supported</p>
     <p id="formdata">XHR2's FormData is not supported</p>
     <p id="progress">XHR2's upload progress isn't supported</p>
+    <div class="col-md-offset-4 col-md-4">
+        <input id="uploaded-url" type="text" value="" class="form-control" />
+    </div>
     <p><progress id="uploadprogress" max="100" value="0">0</progress></p>
 </article>
 @endsection

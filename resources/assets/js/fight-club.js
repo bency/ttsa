@@ -38,6 +38,7 @@ let uploadPhotos = function(files) {
                         return;
                     }
                     var url = ret.data.link;
+                    $('#uploaded-url').val(url);
                     console.log(ret);
                 }
             });
