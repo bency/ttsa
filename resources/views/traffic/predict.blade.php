@@ -53,17 +53,6 @@
         };
         $(document).on('change', '.period-control', startOver);
         $(document).on('click', '.progress', toggleForm);
-        $(document).on('click', '.btn-offset', function () {
-            let id = $(this).data('id'),
-                type = $(this).data('type'),
-                offset = parseInt($('#offset-' + id).val());
-            if ('minus' === type) {
-                $('#offset-' + id).val(offset - 1);
-            } else {
-                $('#offset-' + id).val(offset + 1);
-            }
-            startOver(id);
-        });
         $(document).ready(function () {
             start(1);
             start(2);
@@ -93,10 +82,6 @@
     </div>
     <div class="col-xs-12" id="location-label-1" style="display: none;">
         <span id="location-input-1"></span>
-        <div class="btn-group">
-            <button class="btn btn-danger btn-offset" type="button" data-type="minus" data-id="1"><span class="glyphicon glyphicon-minus"></span></button>
-            <button class="btn btn-primary btn-offset" type="button" data-type="plus" data-id="1"><span class="glyphicon glyphicon-plus"></span></button>
-        </div>
     </div>
     <div class="row">
     <div class="col-xs-10">
@@ -137,10 +122,6 @@
     </div>
     <div class="col-xs-12" id="location-label-2" style="display: none;">
         <span id="location-input-2"></span>
-        <div class="btn-group">
-            <button class="btn btn-danger btn-offset" type="button" data-type="minus" data-id="2"><span class="glyphicon glyphicon-minus"></span></button>
-            <button class="btn btn-primary btn-offset" type="button" data-type="plus" data-id="2"><span class="glyphicon glyphicon-plus"></span></button>
-        </div>
     </div>
     <div class="row">
     <div class="col-xs-10">
