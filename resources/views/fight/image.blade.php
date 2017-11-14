@@ -3,17 +3,23 @@
     <script src="{{ asset('/js/fight-club.js') }}"></script>
 @endsection
 @section('container')
-<article>
-    <div id="holder" class="text-center">
-        <h1>來 丟進來</h1>
+    <div class="row">
+    <div class="col-md-3">
+        <article>
+            <div id="holder" class="text-center">
+                <h1>來 丟進來</h1>
+            </div>
+            <p id="upload" class="visible-xs-block"><label><input type="file"></label></p>
+            <p id="filereader">File API & FileReader API not supported</p>
+            <p id="formdata">XHR2's FormData is not supported</p>
+            <p id="progress">XHR2's upload progress isn't supported</p>
+            <div class="col-md-offset-4 col-md-4">
+                <input id="uploaded-url" type="text" value="" class="form-control" />
+            </div>
+            <p><progress id="uploadprogress" max="100" value="0">0</progress></p>
+        </article>
     </div>
-    <p id="upload" class="visible-xs-block"><label><input type="file"></label></p>
-    <p id="filereader">File API & FileReader API not supported</p>
-    <p id="formdata">XHR2's FormData is not supported</p>
-    <p id="progress">XHR2's upload progress isn't supported</p>
-    <div class="col-md-offset-4 col-md-4">
-        <input id="uploaded-url" type="text" value="" class="form-control" />
+    <div class="col-md-9">
     </div>
-    <p><progress id="uploadprogress" max="100" value="0">0</progress></p>
-</article>
+    </div>
 @endsection
