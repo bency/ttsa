@@ -108,3 +108,13 @@ if (tests.dnd) {
 fileupload.querySelector('input').onchange = function (e) {
     uploadPhotos(this.files);
 }
+document.onpaste = function(event){
+    var items = (event.clipboardData || event.originalEvent.clipboardData).items;
+    for (index in items) {
+        var item = items[index];
+        if (item.kind === 'file') {
+            var blob = item.getAsFile();
+            uploadPhotos([blob]);
+        }
+    }
+}
