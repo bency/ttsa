@@ -15,3 +15,6 @@
 progress { width: 100%; }
 progress:after { content: '%'; }
 .fail { background: #c00; padding: 2px; color: #fff; }
+.block-label {
+    display: block;
+};
