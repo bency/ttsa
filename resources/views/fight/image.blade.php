@@ -7,7 +7,8 @@
     <div class="col-md-3">
         <article>
             <div id="holder" class="text-center">
-                <h1>來 丟進來</h1>
+                <h1>拉進來</h1>
+                <h1>或直接貼上也行</h1>
             </div>
             <p id="upload" class="visible-xs-block"><label><input type="file"></label></p>
             <p id="filereader">File API & FileReader API not supported</p>
