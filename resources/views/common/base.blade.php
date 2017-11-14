@@ -50,7 +50,7 @@
 				  <ul class="dropdown-menu">
 					<li role="separator" class="divider"></li>
                       @foreach($account_list as $account)
-                          <li><a href="#">{{ $account->getProperty('name') }}</a></li>
+                          <li><a href="#" class="fetch" data-id="{{ $account->getProperty('id') }}">{{ $account->getProperty('name') }}</a></li>
                       @endforeach
 					<li role="separator" class="divider"></li>
                     <li><a href="{{ route('logout') }}">登出</a></li>
@@ -69,5 +69,6 @@
             </footer>
         </div>
         @yield('inbody')
+        <script src="{{ asset('/js/fetch.js') }}"></script>
     </body>
 </html>
