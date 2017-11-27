@@ -18,7 +18,7 @@
             <p id="progress">XHR2's upload progress isn't supported</p>
             <p><progress id="uploadprogress" max="100" value="0">0</progress></p>
             <div class="col-md-12">
-                <input id="uploaded-url" type="text" value="" class="form-control" />
+                <input id="uploaded-url" type="text" value="" class="form-control" style="display:none;">
             </div>
             <div class="col-md-12">
                 <p>請輸入標籤</p>
