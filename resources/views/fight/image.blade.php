@@ -19,6 +19,12 @@
             <div class="col-md-12">
                 <input id="uploaded-url" type="text" value="" class="form-control" />
             </div>
+            <div class="col-md-12">
+                <p>請輸入標籤</p>
+                <ul id="tag-list" class="tag-list">
+                    <li><input id="tag-input" class="tag-list-input" type="text" /></li>
+                </ul>
+            </div>
             <p><progress id="uploadprogress" max="100" value="0">0</progress></p>
         </article>
     </div>
