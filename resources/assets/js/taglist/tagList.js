@@ -30,6 +30,12 @@ function TagInput (listEl, inputEl) {
     };
 
     function addTag (newTag) {
+        newTag = newTag.trim();
+
+        if (!newTag) {
+            return false;
+        }
+
         var isDupulicate = tagList.filter(function (tag) {
             return tag === newTag;
         }).length;
