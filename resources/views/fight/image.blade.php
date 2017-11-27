@@ -1,5 +1,7 @@
 @extends('common.base')
 @section('inbody')
+    <link rel="stylesheet" href="{{ asset('/css/tagList.css') }}">
+    <script src="{{ asset('/js/tagList.js') }}"></script>
     <script src="{{ asset('/js/fight-club.js') }}"></script>
 @endsection
 @section('container')

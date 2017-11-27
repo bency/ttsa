@@ -118,3 +118,9 @@ document.onpaste = function(event){
         }
     }
 }
+
+$(document).ready(function(){
+    var list = document.getElementById('tag-list');
+    var input = document.getElementById('tag-input');
+    var tagInput = new TagInput(list, input);
+});
