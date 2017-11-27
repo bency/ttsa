@@ -16,10 +16,16 @@ function TagInput (listEl, inputEl) {
           inputEl.focus();
     });
     inputEl.addEventListener('keydown', handleKeyDown);
+    inputEl.addEventListener('keyup', handleKeyUp);
 
     // 自定義事件
     var remindDupulicateEvent = new Event('remindDupulicate');
 
+    function handleKeyUp (e) {
+        if ((e.keyCode === 188) && e.target.value) {
+            e.target.value = '';
+        }
+    };
 
     function handleKeyDown (e) {
         if ((e.keyCode === 13 || e.keyCode === 188) && e.target.value) {
