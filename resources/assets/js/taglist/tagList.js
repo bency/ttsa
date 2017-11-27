@@ -11,6 +11,13 @@ function TagInput (listEl, inputEl) {
         return tagList;
     };
 
+    if ("" !== inputEl.value) {
+        Array.prototype.forEach.call(inputEl.value.split(','), function (el, i) {
+            addTag(el);
+        });
+        inputEl.value = '';
+    }
+
     // 事件綁定
     listEl.addEventListener('click', function () {
           inputEl.focus();
