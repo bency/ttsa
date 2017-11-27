@@ -22,7 +22,6 @@ function TagInput (listEl, inputEl) {
 
 
     function handleKeyDown (e) {
-        console.log([e.keyCode, e.target.value]);
         if ((e.keyCode === 13 || e.keyCode === 188) && e.target.value) {
             addTag(e.target.value);
             e.target.value = '';
