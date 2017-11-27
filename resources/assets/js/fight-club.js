@@ -120,8 +120,38 @@ document.onpaste = function(event){
     }
 }
 
+var createImageBlock = function (url, tags) {
+    var div = document.createElement('div'),
+        thumbnail = document.createElement('div'),
+        img = document.createElement('img'),
+        caption = document.createElement('div'),
+        ul = document.createElement('ul'),
+        input = document.createElement('input'),
+        result = document.getElementById('result');
+    div.setAttribute('class', 'col-md-4 col-xs-4');
+    thumbnail.setAttribute('class', 'thumbnail');
+    img.src = url;
+    ul.setAttribute('class', 'tag-list');
+    input.value = tags.join(',');
+    input.setAttribute('type', 'hidden');
+    caption.setAttribute('class', 'caption');
+    caption.appendChild(ul);
+    caption.appendChild(input);
+    thumbnail.appendChild(img);
+    div.appendChild(thumbnail);
+    div.appendChild(caption);
+    new TagInput(ul, input);
+    result.appendChild(div);
+};
+
 $(document).ready(function(){
     var list = document.getElementById('tag-list');
     var input = document.getElementById('tag-input');
     var tagInput = new TagInput(list, input);
+
+    $(document).on('click', '#save', function () {
+        var url = $('#uploaded-url').val();
+        var taglist = tagInput.getList();
+        createImageBlock(url, taglist);
+    });
 });
