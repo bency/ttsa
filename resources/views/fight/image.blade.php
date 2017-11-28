@@ -29,14 +29,13 @@
             </div>
         </article>
     </div>
-    <div class="col-md-9">
+    <div id="result" class="col-md-9">
         <div class="row">
             <div class="input-group">
                 <div class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
                 <input id="search-tags" type="text" class="form-control" id="exampleInputAmount" placeholder="搜尋標籤">
             </div>
-        </div>
-        <div id="result" class="row">
+            <hr>
         </div>
     </div>
     </div>
