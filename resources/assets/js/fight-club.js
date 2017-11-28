@@ -134,6 +134,9 @@ var createImageBlock = function (url, tags) {
     img.src = url;
     urlInput.value = url;
     urlInput.setAttribute('class', 'form-control');
+    urlInput.addEventListener('click', function (e) {
+        e.target.setSelectionRange(0, e.target.value.length);
+    });
     ul.setAttribute('class', 'tag-list');
     input.value = tags.join(',');
     input.setAttribute('type', 'hidden');
