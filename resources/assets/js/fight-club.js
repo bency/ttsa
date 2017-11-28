@@ -122,6 +122,7 @@ document.onpaste = function(event){
 
 var createImageBlock = function (url, tags) {
     var div = document.createElement('div'),
+        row = document.createElement('div'),
         thumbnail = document.createElement('div'),
         img = document.createElement('img'),
         caption = document.createElement('div'),
@@ -129,6 +130,7 @@ var createImageBlock = function (url, tags) {
         input = document.createElement('input'),
         urlInput = document.createElement('input'),
         result = document.getElementById('result');
+    row.setAttribute('class', 'row');
     div.setAttribute('class', 'col-md-12');
     thumbnail.setAttribute('class', 'thumbnail');
     img.src = url;
@@ -148,7 +150,8 @@ var createImageBlock = function (url, tags) {
     div.appendChild(thumbnail);
     div.appendChild(caption);
     new TagInput(ul, input);
-    result.appendChild(div);
+    row.append(div);
+    result.appendChild(row);
 };
 
 $(document).ready(function(){
