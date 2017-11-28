@@ -162,8 +162,16 @@ $(document).ready(function(){
     var tagInput = new TagInput(list, input);
 
     $(document).on('click', '#save', function () {
-        var url = $('#uploaded-url').val();
-        var taglist = tagInput.getList();
-        createImageBlock(url, taglist);
+        var url = $('#uploaded-url').val(),
+            taglist = tagInput.getList(),
+            data = {url: url, tags: taglist};
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.post('/api/imagetag', data).done(function (ret) {
+            createImageBlock(url, taglist);
+        });
     });
 });
