@@ -141,6 +141,7 @@ var createImageBlock = function (url, tags) {
     });
     ul.setAttribute('class', 'tag-list');
     input.value = tags.join(',');
+    input.setAttribute('class', 'form-control');
     input.setAttribute('placeholder', '新增標籤');
     caption.setAttribute('class', 'caption');
     caption.appendChild(urlInput);
