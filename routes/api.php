@@ -22,3 +22,4 @@ Route::get('/accident-ratio', 'DiagramController@accidentRatio');
 Route::get('/accident-a1', 'DiagramController@a1Ratio');
 
 Route::resource('posts', 'PostController');
+Route::resource('imagetag', 'ImageTagController');
