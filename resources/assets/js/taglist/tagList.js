@@ -68,6 +68,20 @@ function TagInput (listEl, inputEl) {
         var span = document.createElement('span'),
             tagText = document.createTextNode(tag);
         span.appendChild(tagText);
+        span.addEventListener('click', function (e) {
+            var text = e.target.textContent,
+                searchBox = document.getElementById('search-tags'),
+                originValues = searchBox.value.split(' ');
+
+            var isDupulicate = originValues.filter(function (tag) {
+                return tag === text;
+            }).length;
+            if (isDupulicate) {
+                return;
+            }
+            originValues.push(text);
+            searchBox.value = originValues.join(' ');
+        });
 
         var crossBtn = document.createElement('span'),
             crossText = document.createTextNode('\u2573');
