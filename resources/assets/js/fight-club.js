@@ -129,7 +129,7 @@ var createImageBlock = function (url, tags) {
         input = document.createElement('input'),
         urlInput = document.createElement('input'),
         result = document.getElementById('result');
-    div.setAttribute('class', 'col-md-4 col-xs-4');
+    div.setAttribute('class', 'col-md-12');
     thumbnail.setAttribute('class', 'thumbnail');
     img.src = url;
     urlInput.value = url;
