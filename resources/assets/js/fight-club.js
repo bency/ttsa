@@ -153,6 +153,7 @@ var createImageBlock = function (url, tags) {
     new TagInput(ul, input);
     row.append(div);
     result.appendChild(row);
+    result.append(document.createElement('hr'));
 };
 
 $(document).ready(function(){
