@@ -1,4 +1,7 @@
 @extends('common.base')
+@section('inhead')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+@endsection
 @section('inbody')
     <link rel="stylesheet" href="{{ asset('/css/tagList.css') }}">
     <script src="{{ asset('/js/tagList.js') }}"></script>
