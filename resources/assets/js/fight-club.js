@@ -127,14 +127,18 @@ var createImageBlock = function (url, tags) {
         caption = document.createElement('div'),
         ul = document.createElement('ul'),
         input = document.createElement('input'),
+        urlInput = document.createElement('input'),
         result = document.getElementById('result');
     div.setAttribute('class', 'col-md-4 col-xs-4');
     thumbnail.setAttribute('class', 'thumbnail');
     img.src = url;
+    urlInput.value = url;
+    urlInput.setAttribute('class', 'form-control');
     ul.setAttribute('class', 'tag-list');
     input.value = tags.join(',');
     input.setAttribute('type', 'hidden');
     caption.setAttribute('class', 'caption');
+    caption.appendChild(urlInput);
     caption.appendChild(ul);
     caption.appendChild(input);
     thumbnail.appendChild(img);
