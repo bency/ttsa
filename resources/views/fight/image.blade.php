@@ -24,9 +24,8 @@
                 <input id="uploaded-url" type="hidden" value="" class="form-control" />
             </div>
             <div class="col-md-12">
-                <ul id="tag-list" class="tag-list">
-                </ul>
                 <input id="tag-input" class="form-control" type="text" placeholder="請輸入標籤">
+                <ul id="tag-list" class="tag-list"></ul>
                 <button id="save" type="button" class="btn btn-primary btn-block" disabled>存檔</button>
             </div>
         </article>
