@@ -27,7 +27,7 @@
                 <ul id="tag-list" class="tag-list">
                 </ul>
                 <input id="tag-input" class="form-control" type="text" placeholder="請輸入標籤">
-                <button id="save" type="button" class="btn btn-primary btn-block">存檔</button>
+                <button id="save" type="button" class="btn btn-primary btn-block" disabled>存檔</button>
             </div>
         </article>
     </div>
