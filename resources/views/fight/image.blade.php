@@ -26,9 +26,9 @@
             <div class="col-md-12">
                 <p>請輸入標籤</p>
                 <ul id="tag-list" class="tag-list">
-                    <li><input id="tag-input" class="tag-list-input" type="text" /></li>
                 </ul>
                 <button id="save" type="button" class="btn btn-primary btn-block">存檔</button>
+                <input id="tag-input" class="form-control" type="text">
             </div>
         </article>
     </div>
