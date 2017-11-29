@@ -39,7 +39,6 @@ let uploadPhotos = function(files) {
                     }
                     var url = ret.data.link;
                     $('#uploaded-url').val(url);
-                    $('#uploaded-url').show();
                     console.log(ret);
                 }
             });

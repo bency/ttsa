@@ -21,7 +21,7 @@
             <p id="progress">XHR2's upload progress isn't supported</p>
             <p><progress id="uploadprogress" max="100" value="0">0</progress></p>
             <div class="col-md-12">
-                <input id="uploaded-url" type="text" value="" class="form-control" style="display:none;">
+                <input id="uploaded-url" type="text" value="" class="form-control" />
             </div>
             <div class="col-md-12">
                 <ul id="tag-list" class="tag-list">
