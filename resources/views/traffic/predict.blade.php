@@ -47,15 +47,15 @@
         <div class="form-inline">
             <div class="form-group">
                 <label>路口</label>
-                <input type="text" class="form-control" id="location-2" data-id="1" placeholder="green" value="市民大道中山北路路口">
+                <input type="text" class="form-control" id="location-2" data-id="1" placeholder="green" value="羅斯福路辛亥路路口">
             </div>
             <div class="form-group">
                 <label>綠燈時間<span id="show-green-2"></span></label>
-                <input type="range" class="form-control period-control" id="green-2" data-id="2" placeholder="green" value="65" max="200" min="0" step="1">
+                <input type="range" class="form-control period-control" id="green-2" data-id="2" placeholder="green" value="57" max="200" min="0" step="1">
             </div>
             <div class="form-group">
                 <label>紅燈時間<span id="show-red-2"></span></label>
-                <input type="range" class="form-control period-control" id="red-2" data-id="2" placeholder="red" value="115" max="200" min="0" step="1">
+                <input type="range" class="form-control period-control" id="red-2" data-id="2" placeholder="red" value="93" max="200" min="0" step="1">
             </div>
             <div class="form-group">
                 <label class="block-label">延遲<span id="show-offset-2"></span></label>
