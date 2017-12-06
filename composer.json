@@ -43,6 +43,10 @@
             "Illuminate\\Foundation\\ComposerScripts::postInstall",
             "php artisan optimize --force"
         ],
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover"
+        ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
             "php artisan optimize --force"
