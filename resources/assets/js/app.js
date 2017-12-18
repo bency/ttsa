@@ -13,8 +13,43 @@ require('./bootstrap');
  * the application, or feel free to tweak this setup for your needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
-
-const app = new Vue({
-    el: '#app'
+var data = {
+        intersecions: [
+            {
+                id: 1,
+                name: '市民大道承德路路口',
+                green: 75,
+                red: 125,
+                offset: 0,
+            },
+            {
+                id: 2,
+                name: '錦州街',
+                green: 30,
+                red: 90,
+                offset: 0,
+            },
+            {
+                id: 3,
+                name: '汀州路',
+                green: 45,
+                red: 75,
+                offset: 0,
+            }
+        ]
+};
+var intersect = new Vue({
+    el: '#intersect',
+    data: data,
+    methods: {
+        changeGreen: function (event) {
+            console.log(this.intersecions[0]);
+        },
+        resetInterval: function () {
+            var vm = this;
+            clearInterval(this.interval);
+            this.interval = setInterval(function () {
+            }, this.updateInterval);
+        }
+    }
 });
