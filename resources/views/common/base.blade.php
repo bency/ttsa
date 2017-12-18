@@ -15,7 +15,7 @@
 
         <!-- Styles -->
         <link href="{{ asset('/css/app.css') }}" rel="stylesheet" type="text/css">
-        <script src="{{ asset('/js/app.js') }}"></script>
+        <script defer src="{{ asset('/js/app.js') }}"></script>
         @yield('inhead')
     </head>
     <body>
@@ -69,6 +69,6 @@
             </footer>
         </div>
         @yield('inbody')
-        <script src="{{ asset('/js/fetch.js') }}"></script>
+        <script defer src="{{ asset('/js/fetch.js') }}"></script>
     </body>
 </html>
