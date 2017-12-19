@@ -16,6 +16,15 @@ require('./bootstrap');
 var data = {
         intersecions: [
             {
+                id: 0,
+                name: '市民大道中山北路路口',
+                green: 65,
+                red: 115,
+                offset: 0,
+                countDown: 0,
+                width: [],
+            },
+            {
                 id: 1,
                 name: '市民大道承德路路口',
                 green: 75,
