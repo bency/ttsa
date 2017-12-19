@@ -122,15 +122,15 @@ var intersect = new Vue({
                     }
                 }
             }, vm.updateInterval);
+        },
+        redraw: function () {
+            let length = this.intersecions.length;
+            for (let i = 0; i < length; i++) {
+                this.resetInterval(this.intersecions[i].id);
+            }
         }
     },
     mounted: function () {
-        var vm = this;
-        this.$nextTick(function () {
-            let length = vm.intersecions.length;
-            for (let i = 0; i < length; i++) {
-                vm.resetInterval(vm.intersecions[i].id);
-            }
-        });
+        this.$nextTick(this.redraw);
     }
 });
