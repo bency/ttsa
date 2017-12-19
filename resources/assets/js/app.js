@@ -21,6 +21,8 @@ var data = {
                 green: 75,
                 red: 125,
                 offset: 0,
+                countDown: 0,
+                width: [],
             },
             {
                 id: 2,
@@ -28,6 +30,8 @@ var data = {
                 green: 30,
                 red: 90,
                 offset: 0,
+                countDown: 0,
+                width: [],
             },
             {
                 id: 3,
