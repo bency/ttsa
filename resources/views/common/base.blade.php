@@ -7,6 +7,7 @@
         <meta property="og:url" content="{{ url()->current() }}">
         <meta property="og:title" content="{{ isset($qa) ? $qa->subject : ''}}">
         <meta property="og:description" content="{{ isset($qa) ? $qa->response : '' }}">
+        <script>window.Laravel = {csrfToken: '{{csrf_token()}}'};</script>
 
         <title>{{ env('APP_NAME', "交通安全協會") }}</title>
 
