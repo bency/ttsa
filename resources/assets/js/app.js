@@ -11,10 +11,6 @@ require('./bootstrap');
  * Next, we will create a fresh Vue application instance and attach it to
  * the body of the page. From here, you may begin adding components to
  * the application, or feel free to tweak this setup for your needs.
- */
-
-var data = {
-        intersecions: [
             {
                 id: 0,
                 name: '市民大道中山北路路口',
@@ -78,6 +74,10 @@ var data = {
                 countDown: 0,
                 width: [],
             }
+ */
+
+var data = {
+        intersecions: [
         ],
         updateInterval: 500,
         interval: []
@@ -131,6 +131,10 @@ var intersect = new Vue({
         }
     },
     mounted: function () {
-        this.$nextTick(this.redraw);
+        let _this = this;
+        this.$http.get('/api/traffic').then((response) => {
+            _this.intersecions = response.body;
+            _this.$nextTick(_this.redraw);
+        });
     }
 });
