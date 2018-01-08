@@ -21,7 +21,7 @@ CKEDITOR.replace('content', {
                 </div>
                 <div class="form-group">
                     <label>回應</label>
-                    <textarea id="content" class="form-control" name="response">{{ isset($qa) ? $qa->response : '' }}</textarea>
+                    <textarea id="content" class="form-control" name="response">{!! isset($qa) ? $qa->response : '' !!}</textarea>
                 </div>
                 <input class="btn btn-primary pull-right" value="儲存或更新" type="submit">
             </form>
