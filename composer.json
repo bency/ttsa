@@ -10,7 +10,8 @@
         "maatwebsite/excel": "^2.1",
         "google/apiclient": "^2.0",
         "sammyk/laravel-facebook-sdk": "^3.5",
-        "doctrine/dbal": "^2.5"
+        "doctrine/dbal": "^2.5",
+        "unisharp/laravel-ckeditor": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
