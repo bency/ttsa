@@ -18,6 +18,7 @@ elixir(mix => {
        .webpack('app.js')
        .webpack('fight-club.js')
        .webpack('predict.js')
+       .webpack('dragnupload.js')
        .webpack('fetch.js');
     mix.copy('resources/assets/js/taglist/tagList.js', 'public/js/tagList.js');
     mix.copy('resources/assets/css/tagList.css', 'public/css/tagList.css');
