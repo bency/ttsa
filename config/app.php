@@ -169,6 +169,7 @@ return [
 
         Maatwebsite\Excel\ExcelServiceProvider::class,
         SammyK\LaravelFacebookSdk\LaravelFacebookSdkServiceProvider::class,
+        Unisharp\Ckeditor\ServiceProvider::class,
 
         //
 
