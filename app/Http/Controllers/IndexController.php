@@ -11,7 +11,7 @@ class IndexController extends Controller
     public function random()
     {
         $qa = QA::all()->random();
-        return view('showqa', ['qa' => $qa]);
+        return view('showqa', ['qa' => $qa, 'og_title' => $qa->subject, 'og_desc' => $qa->response]);
     }
 
     public function show($string)

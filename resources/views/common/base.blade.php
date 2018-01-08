@@ -5,8 +5,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta property="og:url" content="{{ url()->current() }}">
-        <meta property="og:title" content="{{ isset($qa) ? $qa->subject : ''}}">
-        <meta property="og:description" content="{{ isset($qa) ? $qa->response : '' }}">
+        <meta property="og:title" content="{{ $og_title or ''}}">
+        <meta property="og:description" content="{{ $og_desc or '' }}">
+        <meta property="og:image" content="{{ $og_image or '' }}">
         <script>window.Laravel = {csrfToken: '{{csrf_token()}}'};</script>
 
         <title>{{ env('APP_NAME', "交通安全協會") }}</title>
