@@ -1,20 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>{{ env('APP_NAME', "交通安全協會") }}</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <link href="{{ asset('/css/app.css') }}" rel="stylesheet" type="text/css">
-    </head>
-    <body>
-        <div class="container">
+@inject('timelines', 'App\TimeLine')
+@extends('common.base')
+@section('inbody')
+    <script async src="{{ asset('/js/dragnupload.js') }}"></script>
+    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script>
+CKEDITOR.replace('content', {
+    language: 'zh_TW'
+});
+    </script>
+@endsection
+@section('container')
             <h3>機車上國道 Q&A 設定後台</h3>
             <a class="btn btn-success pull-right" href="{{ route('qa.create') }}">新增 QA</a>
             <form action="{{ isset($qa) ? route('qa.update', ['id' => $qa->id]) : route('qa.store') }}" method="post">
@@ -30,6 +25,4 @@
                 </div>
                 <input class="btn btn-primary pull-right" value="儲存或更新" type="submit">
             </form>
-        </div>
-    </body>
-</html>
+@endsection
