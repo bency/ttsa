@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="{{ asset('/css/tagList.css') }}">
     <script src="{{ asset('/js/tagList.js') }}"></script>
     <script defer src="{{ asset('/js/fight-club.js') }}"></script>
+    <script defer src="{{ asset('/js/dragnupload.js') }}"></script>
 @endsection
 @section('container')
     <div class="row">
