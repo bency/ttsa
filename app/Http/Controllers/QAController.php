@@ -49,7 +49,8 @@ class QAController extends Controller
      */
     public function show($id)
     {
-        //
+        $qa = QA::find($id);
+        return view('showqa', ['qa' => $qa, 'og_title' => $qa->subject, 'og_desc' => $qa->response]);
     }
 
     /**
