@@ -71,8 +71,8 @@
                 <p class="text-center">台灣機車路權促進會版權所有 © 2017</p>
             </footer>
         </div>
-        @yield('inbody')
         <script defer src="{{ asset('/js/app.js') }}"></script>
         <script defer src="{{ asset('/js/fetch.js') }}"></script>
+        @yield('inbody')
     </body>
 </html>
