@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use App\QA;
 
@@ -49,7 +50,13 @@ class QAController extends Controller
      */
     public function show($id)
     {
-        $qa = QA::find($id);
+        try {
+            $qa = QA::findOrFail($id);
+        } catch (ModelNotFoundException $e) {
+            $qa = QA::where("subject", "like", "%$string%")->firstOrFail();
+        } catch (ModelNotFoundException $e) {
+            $qa = QA::all()->random();
+        }
         return view('showqa', ['qa' => $qa, 'og_title' => $qa->subject, 'og_desc' => $qa->response]);
     }
 
@@ -90,17 +97,5 @@ class QAController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function search($string)
-    {
-        $qa = QA::where("subject", "like", "%$string%")->first();
-        return view('showqa', ['qa' => $qa, 'og_title' => $qa->subject, 'og_desc' => $qa->response]);
-    }
-
-    public function random()
-    {
-        $qa = QA::all()->random();
-        return view('showqa', ['qa' => $qa, 'og_title' => $qa->subject, 'og_desc' => $qa->response]);
     }
 }
