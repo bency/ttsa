@@ -1,4 +1,3 @@
-@inject('timelines', 'App\TimeLine')
 @extends('common.base')
 @section('inbody')
     <script async src="{{ asset('/js/dragnupload.js') }}"></script>
