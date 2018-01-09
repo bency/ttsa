@@ -15,7 +15,8 @@ class QAController extends Controller
      */
     public function index()
     {
-        //
+        $qas = QA::paginate(15);
+        return view('qa.index', ['qas' => $qas]);
     }
 
     /**
