@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta property="og:url" content="{{ url()->current() }}">
         <meta property="og:title" content="{{ $og_title or ''}}">
-        <meta property="og:description" content="{{ $og_desc or '' }}">
+        <meta property="og:description" content="{{ $og_desc ? strip_tags($og_desc) : '' }}">
         <meta property="og:image" content="{{ $og_image or '' }}">
         <script>window.Laravel = {csrfToken: '{{csrf_token()}}'};</script>
 
