@@ -39,7 +39,7 @@ class QAController extends Controller
         $subject = $request->input('subject');
         $response = $request->input('response');
         $qa = QA::create(['subject' => $subject, 'response' => $response]);
-        return redirect()->route('qa.edit', ['id' => $qa->id]);
+        return redirect()->route('qa.show', ['id' => $qa->id]);
     }
 
     /**
@@ -85,7 +85,7 @@ class QAController extends Controller
         $response = $request->input('response');
         $qa = QA::find($id);
         $qa->update(['subject' => $subject, 'response' => $response]);
-        return redirect()->route('qa.edit', ['id' => $qa->id]);
+        return redirect()->route('qa.show', ['id' => $qa->id]);
     }
 
     /**
