@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta property="og:url" content="{{ url()->current() }}">
         <meta property="og:title" content="{{ $og_title or ''}}">
-        <meta property="og:description" content="{{ $og_desc ? strip_tags($og_desc) : '' }}">
+        <meta property="og:description" content="{{ isset($og_desc) ? strip_tags($og_desc) : '' }}">
         <meta property="og:image" content="{{ $og_image or asset('/images/share_1.png') }}">
         <meta property="og:type" content="website">
         <meta property="fb:app_id" content="{{env('FACEBOOK_APP_ID')}}">
