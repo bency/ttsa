@@ -4,6 +4,7 @@
 /public/css
 /public/fonts
 /vendor
+/public/vendor
 /.idea
 Homestead.json
 Homestead.yaml
