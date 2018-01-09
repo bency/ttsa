@@ -8,12 +8,6 @@ use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
-    public function show($string)
-    {
-        $qa = QA::where("subject", "like", "%$string%")->first();
-        return view('showqa', ['qa' => $qa]);
-    }
-
     public function dashboard()
     {
         $like_posts = Post::where('from_id', '=', '780629588719400')->where('type', '!=', 'event')->orderBy('like_count', 'desc')->paginate(10);

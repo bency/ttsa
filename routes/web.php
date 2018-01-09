@@ -45,4 +45,4 @@ Route::get('/facebook/hook', function(Request $request)
     }
     return response($request->input('hub_challenge'));
 });
-Route::get('/{string}', 'IndexController@show');
+Route::get('/qa/{string}', 'QAController@search');

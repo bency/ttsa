@@ -92,6 +92,12 @@ class QAController extends Controller
         //
     }
 
+    public function search($string)
+    {
+        $qa = QA::where("subject", "like", "%$string%")->first();
+        return view('showqa', ['qa' => $qa, 'og_title' => $qa->subject, 'og_desc' => $qa->response]);
+    }
+
     public function random()
     {
         $qa = QA::all()->random();
