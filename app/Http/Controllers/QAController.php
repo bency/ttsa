@@ -57,7 +57,7 @@ class QAController extends Controller
         } catch (ModelNotFoundException $e) {
             $qa = QA::all()->random();
         }
-        return view('showqa', ['qa' => $qa, 'og_title' => $qa->subject, 'og_desc' => $qa->response]);
+        return view('qa.show', ['qa' => $qa, 'og_title' => $qa->subject, 'og_desc' => $qa->response]);
     }
 
     /**
