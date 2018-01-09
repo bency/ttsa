@@ -7,7 +7,7 @@
         <meta property="og:url" content="{{ url()->current() }}">
         <meta property="og:title" content="{{ $og_title or ''}}">
         <meta property="og:description" content="{{ $og_desc ? strip_tags($og_desc) : '' }}">
-        <meta property="og:image" content="{{ $og_image or '' }}">
+        <meta property="og:image" content="{{ $og_image or asset('/images/share_1.png') }}">
         <script>window.Laravel = {csrfToken: '{{csrf_token()}}'};</script>
 
         <title>{{ env('APP_NAME', "交通安全協會") }}</title>
