@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Auth;
 use App\QA;
 
 class QAController extends Controller
@@ -70,6 +72,7 @@ class QAController extends Controller
     public function edit($id)
     {
         $qa = QA::find($id);
+        Log::info('show QA:' . $id . ' edit page for user: ' . Auth::user()->id . '-' . Auth::user()->name);
         return view('qa.create', ['qa' => $qa]);
     }
 
