@@ -40,6 +40,15 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ route('traffic-predict') }}">燈號倒數</a></li>
                     <li><a href="{{ route('fight-club') }}">戰圖區</a></li>
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">月經文 Q&A</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ route('qa.index') }}">Q&A 列表</a></li>
+                            @if(Auth::check())
+                            <li><a href="{{ route('qa.create') }}">新增 Q&A</a></li>
+                            @endif
+                        </ul>
+                    </li>
                     @if(Auth::check())
                     <li><a href="{{ route('line.index') }}">line 群組短網址管理</a></li>
                     @endif
