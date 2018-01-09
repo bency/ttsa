@@ -9,6 +9,7 @@
         <meta property="og:description" content="{{ $og_desc ? strip_tags($og_desc) : '' }}">
         <meta property="og:image" content="{{ $og_image or asset('/images/share_1.png') }}">
         <meta property="og:type" content="website">
+        <meta property="fb:app_id" content="{{env('FACEBOOK_APP_ID')}}">
         <script>window.Laravel = {csrfToken: '{{csrf_token()}}'};</script>
 
         <title>{{ env('APP_NAME', "交通安全協會") }}</title>
