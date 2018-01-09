@@ -22,21 +22,21 @@
         @yield('inhead')
     </head>
     <body>
-		<nav class="navbar navbar-default">
-		  <div class="container-fluid">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-			  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-				<span class="sr-only">{{ env('APP_NAME') }}</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			  </button>
-			  <a class="navbar-brand" href="{{ route('home') }}">{{ env('APP_NAME') }}</a>
-			</div>
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">{{ env('APP_NAME') }}</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="{{ route('home') }}">{{ env('APP_NAME') }}</a>
+            </div>
 
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li><a href="{{ route('traffic-predict') }}">燈號倒數</a></li>
                     <li><a href="{{ route('fight-club') }}">戰圖區</a></li>
@@ -53,26 +53,26 @@
                     <li><a href="{{ route('line.index') }}">line 群組短網址管理</a></li>
                     @endif
                 </ul>
-			  <ul class="nav navbar-nav navbar-right">
-			    @if(!Auth::check())
-				<li><a href="{{ route('login') }}">以 Facebook 登入</a></li>
+              <ul class="nav navbar-nav navbar-right">
+                @if(!Auth::check())
+                <li><a href="{{ route('login') }}">以 Facebook 登入</a></li>
                 @else
-				<li class="dropdown">
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}<span class="caret"></span></a>
-				  <ul class="dropdown-menu">
-					<li role="separator" class="divider"></li>
+                  <ul class="dropdown-menu">
+                    <li role="separator" class="divider"></li>
                       @foreach($account_list as $account)
                           <li><a href="#" class="fetch" data-id="{{ $account->getProperty('id') }}">{{ $account->getProperty('name') }}</a></li>
                       @endforeach
-					<li role="separator" class="divider"></li>
+                    <li role="separator" class="divider"></li>
                     <li><a href="{{ route('logout') }}">登出</a></li>
-				  </ul>
-				</li>
+                  </ul>
+                </li>
                 @endif
-			  </ul>
-			</div><!-- /.navbar-collapse -->
-		  </div><!-- /.container-fluid -->
-		</nav>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+    </nav>
         <div class="container">
             @yield('container')
             <hr>
