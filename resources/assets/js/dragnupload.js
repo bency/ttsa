@@ -37,7 +37,7 @@ let uploadPhotos = function(files) {
                     if ('success' != status) {
                         return;
                     }
-                    var url = ret.data.link;
+                    var url = ret.data.link + '?' + ret.data.width + 'x' + ret.data.height;
                     $('#uploaded-url').val(url);
                     console.log(ret);
                 }
