@@ -53,7 +53,7 @@ class QAController extends Controller
         try {
             $qa = QA::findOrFail($id);
         } catch (ModelNotFoundException $e) {
-            $qa = QA::where("subject", "like", "%$string%")->firstOrFail();
+            $qa = QA::where("subject", "like", "%$id%")->firstOrFail();
         } catch (ModelNotFoundException $e) {
             $qa = QA::all()->random();
         }
