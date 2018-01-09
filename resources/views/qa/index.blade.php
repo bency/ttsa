@@ -7,7 +7,9 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             {{ $qa->subject }}
+            @if(Auth::check())
             <a class="pull-right" href="{{ route('qa.edit', $qa->id) }}"><span class="glyphicon glyphicon-pencil"></span></a>
+            @endif
         </div>
         <div class="panel-body">
             {!! $qa->response !!}
