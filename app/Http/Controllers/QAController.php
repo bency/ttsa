@@ -42,6 +42,7 @@ class QAController extends Controller
         $subject = $request->input('subject');
         $response = $request->input('response');
         $qa = QA::create(['subject' => $subject, 'response' => $response]);
+        Log::info('Create QA:' . $qa->id . ' by user: ' . Auth::user()->id . '-' . Auth::user()->name . ' with content: ' . $qa->toJson());
         return redirect()->route('qa.show', ['id' => $qa->id]);
     }
 
