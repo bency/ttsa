@@ -1,7 +1,7 @@
 @extends('common.base')
 @section('container')
 <div class="page-header">
-    <h1>月經文 Q&A 設定後台</h1>
+    <h1>月經文 Q&A 列表</h1>
 </div>
 @foreach($qas as $qa)
     <div class="panel panel-default">
