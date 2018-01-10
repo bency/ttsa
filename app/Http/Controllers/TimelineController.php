@@ -25,6 +25,7 @@ class TimelineController extends Controller
      */
     public function create()
     {
+        return view('timeline.create');
     }
 
     /**
