@@ -91,8 +91,7 @@ function previewfile(file) {
 
         reader.readAsDataURL(file);
     }    else {
-        holder.innerHTML += '<p>Uploaded ' + file.name + ' ' + (file.size ? (file.size/1024|0) + 'K' : '');
-        console.log(file);
+        holder.innerHTML += '<p class="bg-danger">你上傳的檔案: "' + file.name + '" 不是圖檔喔</p>';
     }
 }
 
