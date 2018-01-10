@@ -96,10 +96,10 @@ function previewfile(file) {
 }
 
 if (tests.dnd) {
-    holder.ondragover = function () { this.className = 'hover'; return false; };
-    holder.ondragend = function () { this.className = ''; return false; };
+    holder.ondragover = function () { this.className = 'text-center hover'; return false; };
+    holder.ondragend = function () { this.className = 'text-center'; return false; };
     holder.ondrop = function (e) {
-        this.className = '';
+        this.className = 'text-center';
         e.preventDefault();
         uploadPhotos(e.dataTransfer.files);
     }
