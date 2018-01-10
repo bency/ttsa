@@ -40,6 +40,7 @@
                 <ul class="nav navbar-nav">
                     {{-- <li><a href="{{ route('traffic-predict') }}">燈號倒數</a></li> --}}
                     {{-- <li><a href="{{ route('fight-club') }}">戰圖區</a></li> --}}
+                    <li><a href="{{ route('diagram') }}">各種數據圖</a></li>
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">月經文 Q&A</a>
                         <ul class="dropdown-menu">
