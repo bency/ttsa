@@ -16,6 +16,7 @@ require('laravel-elixir-vue-2');
 elixir(mix => {
     mix.sass('app.scss')
        .webpack('app.js')
+       .webpack('traffic.js')
        .webpack('fight-club.js')
        .webpack('predict.js')
        .webpack('dragnupload.js')
