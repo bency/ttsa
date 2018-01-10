@@ -40,6 +40,16 @@ class TimelineController extends Controller
      */
     public function store(Request $request)
     {
+        if (!Auth::check()) {
+            return redirect()->route('timeline.index');
+        }
+        $name = $request->input('name');
+        try {
+            $timeline = TimeLine::create(['name' => $name]);
+        } catch (QueryException $e) {
+            return redirect(route('timeline.create'))->withInput()->with('error', "$name 有人用過囉，請再想一個新的");
+        }
+        return redirect()->route('timeline.show', ['id' => $timeline->id]);
     }
 
     /**
