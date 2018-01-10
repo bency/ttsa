@@ -14,7 +14,7 @@ use App\Jobs\FetchPosts;
 
 Route::resource('qa', 'QAController');
 Route::get('/', 'IndexController@home')->name('home');
-Route::get('/diagrams', 'DiagramController@index');
+Route::get('/diagrams', 'DiagramController@index')->name('diagram');
 Route::get('/group/{path}', 'LineController@redirect');
 Route::resource('/line', 'LineController');
 
