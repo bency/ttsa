@@ -55,7 +55,9 @@
                         <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">時間軸管理</a>
                         <ul class="dropdown-menu">
                             <li><a href="{{ route('timeline.index') }}">時間軸列表</a></li>
+                            @if(Auth::check())
                             <li><a href="{{ route('timeline.create') }}">新增時間軸</a></li>
+                            @endif
                         </ul>
                     </li>
                 </ul>
