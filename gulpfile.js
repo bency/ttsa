@@ -19,6 +19,7 @@ elixir(mix => {
        .webpack('traffic.js')
        .webpack('fight-club.js')
        .webpack('predict.js')
+       .webpack('timeline-show.js')
        .webpack('dragnupload.js')
        .webpack('diagram.js')
        .webpack('fetch.js');

@@ -60,6 +60,12 @@ class TimelineController extends Controller
      */
     public function show($id)
     {
+        try {
+            $timeline = TimeLine::findOrFail($id);
+        } catch (\Exception $e) {
+            return redirect(route('timeline.index'));
+        }
+        return view('timeline.show', ['timeline' => $timeline]);
     }
 
     /**
