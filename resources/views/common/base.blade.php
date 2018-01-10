@@ -38,8 +38,8 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ route('traffic-predict') }}">燈號倒數</a></li>
-                    <li><a href="{{ route('fight-club') }}">戰圖區</a></li>
+                    {{-- <li><a href="{{ route('traffic-predict') }}">燈號倒數</a></li> --}}
+                    {{-- <li><a href="{{ route('fight-club') }}">戰圖區</a></li> --}}
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">月經文 Q&A</a>
                         <ul class="dropdown-menu">
