@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use App\TimeLine;
+use Auth;
 
 class TimelineController extends Controller
 {
@@ -25,6 +26,9 @@ class TimelineController extends Controller
      */
     public function create()
     {
+        if (!Auth::check()) {
+            return redirect()->route('timeline.index');
+        }
         return view('timeline.create');
     }
 
