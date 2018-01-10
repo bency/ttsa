@@ -26,6 +26,7 @@ let uploadPhotos = function(files) {
                       progress.value = progress.innerHTML = 100;
                     };
                     xhr.upload.onprogress = function (event) {
+                      progress.setAttribute('class', '');
                       if (event.lengthComputable) {
                         var complete = (event.loaded / event.total * 100 | 0);
                         progress.value = progress.innerHTML = complete;
