@@ -85,7 +85,7 @@ function previewfile(file) {
         reader.onload = function (event) {
             var image = new Image();
             image.src = event.target.result;
-            image.width = 250; // a fake resize
+            image.width = holder.offsetWidth - 20; // border
             holder.appendChild(image);
         };
 
