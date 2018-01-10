@@ -1,6 +1,5 @@
 @extends('common.base')
 @section('inbody')
-    <script async src="{{ asset('/js/dragnupload.js') }}"></script>
     <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
     <script>
 CKEDITOR.replace('content', {
