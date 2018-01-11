@@ -17,3 +17,37 @@ progress { width: 100%; }
 .block-label {
     display: block;
 };
+.report-content {
+    font-size: 26px;
+    padding: 55px;
+}
+@media screen and (max-width: 700px) {
+    .report-content {
+        font-size: 20px;
+        padding: 25px;
+    }
+}
+#thumb {
+    max-width: 1100px;
+    max-height: 1100px;
+}
+@media screen and (max-width: 768px) {
+    #thumb {
+        max-width: 400px;
+        max-height: 400px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    #thumb {
+        max-width: 530px;
+        max-height: 530px;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    #thumb {
+        max-width: 730px;
+        max-height: 730px;
+    }
+}
