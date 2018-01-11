@@ -72,4 +72,13 @@ var chart = new d3KitTimeline('#timeline', {
     }
 });
 
-chart.data(data).visualize().resizeToFit();
+$.get('/api/report/' + location.pathname.split('/')[2]).done(function (ret) {
+    var data = new Array();
+    for (i in ret) {
+        data.push({
+            time: new Date(ret[i].time),
+            name: ret[i].name
+        });
+    }
+    chart.data(data).visualize().resizeToFit();
+});
