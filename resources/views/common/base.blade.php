@@ -50,7 +50,7 @@
                             @endif
                         </ul>
                     </li>
-                    <li><a href="{{ route('line.index') }}">line 群組短網址管理</a></li>
+                    {{-- <li><a href="{{ route('line.index') }}">line 群組短網址管理</a></li> --}}
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">時間軸管理</a>
                         <ul class="dropdown-menu">
