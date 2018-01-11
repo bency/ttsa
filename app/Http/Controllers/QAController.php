@@ -18,7 +18,7 @@ class QAController extends Controller
     public function index()
     {
         $qas = QA::paginate(15);
-        return view('qa.index', ['qas' => $qas]);
+        return view('qa.index', ['qas' => $qas, 'og_title' => '機車路權月經問題 Q&A', 'og_desc' => '對於網路上不斷重複的機車路權問題回覆到膩了嗎？來這邊找答案，幫你輕鬆打臉']);
     }
 
     /**
