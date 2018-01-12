@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Report;
 use App\ReportTimeLine;
+use App\TimeLine;
 
 class ReportController extends Controller
 {
