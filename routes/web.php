@@ -18,6 +18,7 @@ Route::get('/diagrams', 'DiagramController@index')->name('diagram');
 Route::get('/group/{path}', 'LineController@redirect');
 Route::resource('/line', 'LineController');
 Route::resource('/timeline', 'TimelineController');
+Route::resource('/report', 'ReportController');
 
 Route::get('/logout', function () {
     Auth::logout();
