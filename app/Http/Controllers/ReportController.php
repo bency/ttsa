@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Report;
 use App\ReportTimeLine;
 use App\TimeLine;
+use Auth;
 
 class ReportController extends Controller
 {
@@ -26,6 +27,9 @@ class ReportController extends Controller
      */
     public function create()
     {
+        if (!Auth::check()) {
+            return redirect()->route('report.index');
+        }
         return view('report.create');
     }
 
@@ -37,6 +41,9 @@ class ReportController extends Controller
      */
     public function store(Request $request)
     {
+        if (!Auth::check()) {
+            return redirect()->route('report.index');
+        }
         $title = $request->input('title');
         $reported_at = strtotime($request->input('reported_at'));
         $content = $request->input('content');
@@ -87,6 +94,9 @@ class ReportController extends Controller
      */
     public function edit($id)
     {
+        if (!Auth::check()) {
+            return redirect()->route('report.index');
+        }
         $report = Report::find($id);
         return view('report.edit', ['report' => $report]);
     }
@@ -100,6 +110,9 @@ class ReportController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if (!Auth::check()) {
+            return redirect()->route('report.index');
+        }
         $report = Report::find($id);
         $timeline_ids = $request->input('timelines', []);
         ReportTimeLine::where('report_id', '=', $id)->delete();
