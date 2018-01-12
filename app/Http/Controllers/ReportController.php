@@ -86,6 +86,8 @@ class ReportController extends Controller
      */
     public function edit($id)
     {
+        $report = Report::find($id);
+        return view('report.edit', ['report' => $report]);
     }
 
     /**
