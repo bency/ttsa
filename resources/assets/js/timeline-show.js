@@ -67,7 +67,7 @@ var chart = new d3KitTimeline('#timeline', {
     timeFn: function (d) {
         return d.time;
     },
-    textFn: d => (d.time.getMonth()) + '-' + d.time.getDate() + ' ' + d.name
+    textFn: d => d.time.getFullYear() + '-' + (d.time.getMonth()) + '-' + d.time.getDate() + ' ' + d.name
 });
 
 $.get('/api/report/' + location.pathname.split('/')[2]).done(function (ret) {
