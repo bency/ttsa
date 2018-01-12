@@ -44,11 +44,14 @@ class ReportController extends Controller
     public function show($id)
     {
         $report = Report::find($id);
+        list($width, $height) = explode('x', explode('?', $report->pic_url)[1]);
         $data = [
             'report' => $report,
             'og_title' => date('Y-m-d', $report->reported_at) . ' ' . $report->title,
             'og_desc' => $report->content,
             'og_image' => $report->pic_url,
+            'og_image_width' => $width,
+            'og_image_height' => $height,
         ];
         return view('report.show', $data);
     }

@@ -1,4 +1,8 @@
 @extends('common.base')
+@section('inhead')
+    <meta name="og:image:width" content="{{ $og_image_width }}">
+    <meta name="og:image:height" content="{{ $og_image_height }}">
+@endsection
 @section('container')
     <a class="magnifier-thumb-wrapper text-center" href="{{ $report->pic_url }}" target="_blank">
         <img id="thumb" src="{{ $report->pic_url }}" class="img-responsive" data-large-img-url="{{ $report->pic_url }}">
