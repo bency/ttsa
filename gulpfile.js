@@ -24,7 +24,10 @@ elixir(mix => {
        .webpack('diagram.js')
        .webpack('fetch.js');
     mix.copy('resources/assets/js/taglist/tagList.js', 'public/js/tagList.js');
+    mix.copy('resources/assets/js/Event.js', 'public/js/Event.js');
+    mix.copy('resources/assets/js/Magnifier.js', 'public/js/Magnifier.js');
     mix.copy('resources/assets/css/tagList.css', 'public/css/tagList.css');
+    mix.copy('resources/assets/css/magnifier.css', 'public/css/magnifier.css');
     mix.copy('node_modules/d3/d3.min.js', 'public/js/d3.min.js');
     mix.copy('node_modules/c3/c3.min.js', 'public/js/c3.min.js');
     mix.copy('node_modules/c3/c3.min.css', 'public/css/c3.min.css');
