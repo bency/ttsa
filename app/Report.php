@@ -19,4 +19,9 @@ class Report extends Model
         'updated_at',
         'deleted_at'
     ];
+
+    public function timelines()
+    {
+        return $this->belongsToMany('App\TimeLine');
+    }
 }
