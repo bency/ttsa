@@ -9,4 +9,7 @@
     <script defer src="{{ asset('/js/timeline-show.js') }}"></script>
     <h2>{{ $timeline->name }}</h2>
     <div id="timeline"></div>
+    <div class="panel-footer">
+        <div class="fb-comments" data-href="{{ url()->current() }}" data-width="100%" data-numposts="10" data-order_by="time"></div>
+    </div>
 @endsection
