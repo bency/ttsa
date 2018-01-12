@@ -74,7 +74,9 @@
                         <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">報導管理</a>
                         <ul class="dropdown-menu">
                             <li><a href="{{ route('report.index') }}">報導列表</a></li>
+                            @if(Auth::check())
                             <li><a href="{{ route('report.create') }}">新增報導</a></li>
+                            @endif
                         </ul>
                     </li>
                 </ul>
