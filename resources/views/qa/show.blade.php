@@ -1,7 +1,7 @@
 @extends('common.base')
 @section('container')
             <h1>月經文 Q&A {{ isset($qa) ? $qa->id : 1 }}</h1>
-    <div class="panel panel-default">
+    <div class="panel panel-default col-md-12">
         <div class="panel-heading">
             {{ $qa->subject }}
             @if(Auth::check())
