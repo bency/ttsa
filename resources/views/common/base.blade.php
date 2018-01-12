@@ -109,6 +109,16 @@
         </div>
         <script defer src="{{ asset('/js/app.js') }}"></script>
         <script defer src="{{ asset('/js/fetch.js') }}"></script>
+        <div id="fb-root"></div>
+        <script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.11&appId={{env('FACEBOOK_APP_ID')}}';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+        </script>
         @yield('inbody')
     </body>
 </html>
