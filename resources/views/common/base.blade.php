@@ -104,7 +104,7 @@
             @yield('container')
             <hr>
             <footer>
-                <p class="text-center">台灣機車路權促進會版權所有 © 2017</p>
+                <p class="text-center">台灣機車路權促進會版權所有 © 2018</p>
             </footer>
         </div>
         <script defer src="{{ asset('/js/app.js') }}"></script>
