@@ -140,5 +140,14 @@ class ReportController extends Controller
 
     public function timelineData($timeline_id)
     {
+        $timeline = TimeLine::find($timeline_id);
+        $output = [];
+        foreach ($timeline->reports()->orderBy('reported_at', 'ASC')->get() as $timeline) {
+            $data = [];
+            $data['time'] = date('Y-m-d', $timeline->reported_at);
+            $data['name'] = $timeline->title;
+            $output[] = $data;
+        }
+        return response()->json($output);
     }
 }
