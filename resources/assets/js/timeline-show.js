@@ -51,24 +51,6 @@ var data = [
 {time: new Date(1975,11,27), episode: 1, name: '台省主席函覆監委 防止機車肇事 已採多項措施'},
 {time: new Date(1975,11,27), episode: 1, name: '今後考機車駕照 將增加心理測驗'}
 ];
-var chart = new d3KitTimeline('#timeline', {
-    direction: 'right',
-    initialHeight: 2250,
-    layerGap: 100,
-    margin: {left: 100, right: 150},
-    labelPadding: {
-        left: 20
-    },
-    scale: d3.time.scale(),
-    labella: {
-        algorithm: 'simple',
-        stubWidth: 100,
-    },
-    timeFn: function (d) {
-        return d.time;
-    },
-    textFn: d => d.time.getFullYear() + '-' + (d.time.getMonth()) + '-' + d.time.getDate() + ' ' + d.name
-});
 
 $.get('/api/report/' + location.pathname.split('/')[2]).done(function (ret) {
     var data = new Array();
@@ -78,5 +60,23 @@ $.get('/api/report/' + location.pathname.split('/')[2]).done(function (ret) {
             name: ret[i].name
         });
     }
+    var chart = new d3KitTimeline('#timeline', {
+        direction: 'right',
+        initialHeight: 2250,
+        layerGap: 100,
+        margin: {left: 100, right: 150},
+        labelPadding: {
+            left: 20
+        },
+        scale: d3.time.scale(),
+        labella: {
+            algorithm: 'simple',
+            stubWidth: 100,
+        },
+        timeFn: function (d) {
+            return d.time;
+        },
+        textFn: d => d.time.getFullYear() + '-' + (d.time.getMonth()) + '-' + d.time.getDate() + ' ' + d.name
+    });
     chart.data(data).visualize().resizeToFit();
 });
