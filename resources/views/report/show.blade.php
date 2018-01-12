@@ -21,3 +21,9 @@
         </div>
     </div>
 @endsection
+@section('inbody')
+    <script defer src="{{ asset('/js/Magnifier.js') }}"></script>
+    <script async src="{{ asset('/js/Event.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('/css/magnifier.css') }}">
+    <script defer src="{{ asset('/js/report-show.js') }}"></script>
+@endsection
