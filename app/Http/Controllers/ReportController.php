@@ -49,6 +49,7 @@ class ReportController extends Controller
             'pic_url' => $pic_url,
             'company_id' => $company_id,
         ]);
+        ReportTimeLine::create(['report_id' => $report->id, 'time_line_id' => TimeLine::first()->id]);
         if ($request->input('continue')) {
             $request->flash();
             return redirect()->route('report.create');
