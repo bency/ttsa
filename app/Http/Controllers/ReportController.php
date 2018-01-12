@@ -100,6 +100,19 @@ class ReportController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $report = Report::find($id);
+        $timeline_ids = $request->input('timelines', []);
+        ReportTimeLine::where('report_id', '=', $id)->delete();
+        foreach ($timeline_ids as $timeline_id) {
+            ReportTimeLine::create(['report_id' => $id, 'time_line_id' => $timeline_id]);
+        }
+        $report->update([
+            'content' => $request->input('content', ''),
+            'title' => $request->input('title'),
+            'reported_at' => strtotime($request->input('reported_at')),
+            'pic_url' => $request->input('pic_url'),
+        ]);
+        return redirect()->route('report.show', $id);
     }
 
     /**
