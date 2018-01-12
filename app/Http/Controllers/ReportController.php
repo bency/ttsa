@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Report;
 
 class ReportController extends Controller
 {
@@ -42,6 +43,14 @@ class ReportController extends Controller
      */
     public function show($id)
     {
+        $report = Report::find($id);
+        $data = [
+            'report' => $report,
+            'og_title' => date('Y-m-d', $report->reported_at) . ' ' . $report->title,
+            'og_desc' => $report->content,
+            'og_image' => $report->pic_url,
+        ];
+        return view('report.show', $data);
     }
 
     /**
