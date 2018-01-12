@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Report;
+use App\ReportTimeLine;
 
 class ReportController extends Controller
 {
@@ -35,6 +36,24 @@ class ReportController extends Controller
      */
     public function store(Request $request)
     {
+        $title = $request->input('title');
+        $reported_at = strtotime($request->input('reported_at'));
+        $content = $request->input('content');
+        $pic_url = $request->input('pic_url');
+        $company_id = 1;
+        $content = $request->input('content', '');
+        $report = Report::create([
+            'title' => $title,
+            'reported_at' => $reported_at,
+            'content' => $content,
+            'pic_url' => $pic_url,
+            'company_id' => $company_id,
+        ]);
+        if ($request->input('continue')) {
+            $request->flash();
+            return redirect()->route('report.create');
+        }
+        return redirect()->route('report.index');
     }
 
     /**
