@@ -28,6 +28,9 @@ class QAController extends Controller
      */
     public function create()
     {
+        if (!Auth::check()) {
+            return redirect()->route('qa.index');
+        }
         return view('qa.create');
     }
 
@@ -39,6 +42,9 @@ class QAController extends Controller
      */
     public function store(Request $request)
     {
+        if (!Auth::check()) {
+            return redirect()->route('qa.show', ['id' => $id]);
+        }
         $subject = $request->input('subject');
         $response = $request->input('response');
         $qa = QA::create(['subject' => $subject, 'response' => $response]);
@@ -75,6 +81,9 @@ class QAController extends Controller
      */
     public function edit($id)
     {
+        if (!Auth::check()) {
+            return redirect()->route('qa.show', ['id' => $id]);
+        }
         $qa = QA::find($id);
         Log::info('show QA:' . $id . ' edit page for user: ' . Auth::user()->id . '-' . Auth::user()->name);
         return view('qa.create', ['qa' => $qa]);
@@ -89,6 +98,9 @@ class QAController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if (!Auth::check()) {
+            return redirect()->route('qa.show', ['id' => $id]);
+        }
         $subject = $request->input('subject');
         $response = $request->input('response');
         $qa = QA::find($id);
