@@ -107,7 +107,7 @@ class QAController extends Controller
         $old_content = $qa->toJson();
         $qa->update(['subject' => $subject, 'response' => $response]);
         $new_content = $qa->toJson();
-        Log::info('Update QA:' . $qa->id . ' by user: ' . Auth::user()->id . '-' . Auth::user()->name . ' with old content: ' . $old_content . ' and new_content: ' . $new_content());
+        Log::info('Update QA:' . $qa->id . ' by user: ' . Auth::user()->id . '-' . Auth::user()->name . ' with old content: ' . $old_content . ' and new_content: ' . $new_content);
         return redirect()->route('qa.show', ['id' => $qa->id]);
     }
 
