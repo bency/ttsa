@@ -15,4 +15,5 @@
         </li>
         @endforeach
     </ul>
+    {{ $reports->links() }}
 @endsection
