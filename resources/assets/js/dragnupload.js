@@ -5,6 +5,15 @@ let uploadPhotos = function(files) {
     previewfile(file);
     // Ensure it's an image
     if(file.type.match(/image.*/)) {
+        var filename = file.name.split('.')[0],
+            reportedAt = filename.split(',')[0].replace(/:/g, '-'),
+            title = filename.split(',')[1];
+        if ($('#reported_at').val() === '') {
+            $('#reported_at').val(reportedAt);
+        }
+        if ($('#title').val() === '') {
+            $('#title').val(title);
+        }
 
         // Load the image
         var reader = new FileReader();
