@@ -6,11 +6,11 @@
     <form action="{{route('report.store')}}" method="post">
         <div class="form-group">
             <label for="exampleInputEmail1">報導時間</label>
-            <input type="date" name="reported_at" class="form-control" value="{{ old('reported_at') }}">
+            <input id="reported_at" type="date" name="reported_at" class="form-control" value="{{ old('reported_at') }}">
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">報導標題</label>
-            <input type="text" name="title" class="form-control" placeholder="">
+            <input id="title" type="text" name="title" class="form-control" placeholder="">
         </div>
         <div id="holder" class="text-center">
             <h1>拉進來</h1>
