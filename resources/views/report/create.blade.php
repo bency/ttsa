@@ -24,6 +24,6 @@
         <input id="uploaded-url" type="hidden" name="pic_url" value="" class="form-control" />
         {{ csrf_field() }}
         <button type="submit" class="btn btn-success">儲存</button>
-        <input type="submit" name="continue" class="btn btn-primary pull-right" value="繼續新增">
+        <input id="continue" type="submit" name="continue" class="btn btn-primary pull-right" value="繼續新增">
     </form>
 @endsection
