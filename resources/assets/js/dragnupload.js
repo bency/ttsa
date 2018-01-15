@@ -49,7 +49,9 @@ let uploadPhotos = function(files) {
                     }
                     var url = ret.data.link + '?' + ret.data.width + 'x' + ret.data.height;
                     $('#uploaded-url').val(url);
-                    console.log(ret);
+                    if ($('#reported_at').val() !== '' && $('#title').val() !== '') {
+                        $('#continue').click();
+                    }
                 }
             });
         }
