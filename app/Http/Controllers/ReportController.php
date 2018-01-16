@@ -42,9 +42,6 @@ class ReportController extends Controller
      */
     public function store(Request $request)
     {
-        if (!Auth::check()) {
-            return redirect()->route('report.index');
-        }
         $title = $request->input('title');
         $reported_at = strtotime($request->input('reported_at'));
         $content = $request->input('content');
