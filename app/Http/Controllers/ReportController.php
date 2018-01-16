@@ -44,7 +44,7 @@ class ReportController extends Controller
     {
         $title = $request->input('title');
         $reported_at = strtotime($request->input('reported_at'));
-        $pic_url = $request->input('pic_url');
+        $pic_url = $request->input('pic_url', '');
         $company_id = 1;
         $content = $request->input('content', '');
         $report = Report::create([
