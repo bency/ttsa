@@ -5,6 +5,11 @@ var chart = c3.generate({
     },
     data: {
         xFormat: '%Y-%m',
+        onclick: function (data, element) {
+            let date = data.x,
+                yearMonth = date.getFullYear() + '-' + (date.getMonth() + 1),
+                timeline_id = location.pathname.split('/')[2];
+        },
         columns: []
     },
     zoom: {
