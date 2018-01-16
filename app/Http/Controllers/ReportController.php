@@ -60,7 +60,7 @@ class ReportController extends Controller
         ]);
         ReportTimeLine::create(['report_id' => $report->id, 'time_line_id' => TimeLine::first()->id]);
         if ($request->input('continue')) {
-            return redirect()->route('report.create');
+            return redirect()->route('report.create')->with(['success' => $title . ' 已成功建立']);
         }
         return redirect()->route('report.index');
     }

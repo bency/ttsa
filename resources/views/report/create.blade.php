@@ -3,6 +3,14 @@
     <script async src="{{ asset('/js/dragnupload.js') }}"></script>
 @endsection
 @section('container')
+    @if(session('success'))
+        <p class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            {{ session('success') }}
+        </p>
+    @endif
     <form action="{{route('report.store')}}" method="post">
         <div class="form-group">
             <label for="exampleInputEmail1">報導時間</label>
