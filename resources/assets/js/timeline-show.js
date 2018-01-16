@@ -1,7 +1,7 @@
 var chart = c3.generate({
     bindto: '#timeline',
     size: {
-        height: 800
+        height: 400
     },
     data: {
         xFormat: '%Y-%m',
@@ -15,7 +15,7 @@ var chart = c3.generate({
         show: true,
         labels: false,
         size: {
-            height: 200,
+            height: 100,
         }
     },
     axis: {
