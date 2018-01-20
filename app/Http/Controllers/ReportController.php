@@ -47,13 +47,12 @@ class ReportController extends Controller
         $pic_url = $request->input('pic_url', '');
         $company_id = 1;
         $content = $request->input('content', '');
-        $report = Report::create([
-            'title' => $title,
+        $report = Report::updateOrCreate([
             'reported_at' => $reported_at,
             'content' => $content,
             'pic_url' => $pic_url,
             'company_id' => $company_id,
-        ]);
+        ],['title' => $title]);
         ReportTimeLine::create(['report_id' => $report->id, 'time_line_id' => TimeLine::first()->id]);
         if ($request->input('continue')) {
             return redirect()->route('report.create')->with(['success' => $title . ' 已成功建立']);
