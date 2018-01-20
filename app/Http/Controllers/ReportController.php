@@ -137,13 +137,33 @@ class ReportController extends Controller
     public function timelineData($timeline_id)
     {
         $timeline = TimeLine::find($timeline_id);
-        $output = [];
-        foreach ($timeline->reports()->orderBy('reported_at', 'ASC')->get() as $timeline) {
-            $data = [];
-            $data['time'] = date('Y-m-d', $timeline->reported_at);
-            $data['name'] = $timeline->title;
-            $output[] = $data;
+        $data = [];
+        $min = 0;
+        foreach ($timeline->reports()->orderBy('reported_at', 'ASC')->get() as $report) {
+            if (!$min) {
+                $min = $report->reported_at;
+            }
+            $max = $report->reported_at;
+            $date = date('Y-m', $report->reported_at);
+            if (!isset($data[$date])) {
+                $data[$date] = 0;
+            }
+            $data[$date]++;
         }
-        return response()->json($output);
+        $axis = array_prepend(array_keys($data), 'axis');
+        $data = array_prepend(array_values($data), $timeline->name);
+        $data = [
+            $axis,
+            $data
+        ];
+        $ret = [
+            'xs' => [
+                $timeline->name => 'axis',
+            ],
+            'type' => 'bar',
+            'columns' => $data,
+            'labels' => false,
+        ];
+        return response()->json($ret);
     }
 }

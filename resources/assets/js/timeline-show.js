@@ -1,28 +1,47 @@
-$.get('/api/report/' + location.pathname.split('/')[2]).done(function (ret) {
-    var data = new Array();
-    for (i in ret) {
-        data.push({
-            time: new Date(ret[i].time),
-            name: ret[i].name
-        });
+var chart = c3.generate({
+    bindto: '#timeline',
+    size: {
+        height: 400
+    },
+    data: {
+        xFormat: '%Y-%m',
+        onclick: function (data, element) {
+            let date = data.x,
+                yearMonth = date.getFullYear() + '-' + (date.getMonth() + 1),
+                timeline_id = location.pathname.split('/')[2];
+        },
+        columns: []
+    },
+    zoom: {
+        enabled: true,
+        rescale: true
+    },
+    subchart: {
+        show: true,
+        labels: false,
+        size: {
+            height: 100,
+        }
+    },
+    axis: {
+        x: {
+            type: "timeseries",
+            tick: {
+                fit: true,
+                format: "%Y-%m"
+            }
+        },
+        y: {
+            label: '報導數量',
+            min: 0,
+        }
+    },
+    bar: {
+        width: {
+            ratio: 10
+        }
     }
-    var chart = new d3KitTimeline('#timeline', {
-        direction: 'right',
-        initialHeight: 2250,
-        layerGap: 100,
-        margin: {left: 100, right: 150},
-        labelPadding: {
-            left: 20
-        },
-        scale: d3.time.scale(),
-        labella: {
-            algorithm: 'simple',
-            stubWidth: 100,
-        },
-        timeFn: function (d) {
-            return d.time;
-        },
-        textFn: d => d.time.getFullYear() + '-' + (d.time.getMonth()) + '-' + d.time.getDate() + ' ' + d.name
-    });
-    chart.data(data).visualize().resizeToFit();
+});
+$.get('/api/report/' + location.pathname.split('/')[2]).done(function (ret) {
+    chart.load(ret);
 });

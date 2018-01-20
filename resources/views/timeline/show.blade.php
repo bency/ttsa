@@ -1,9 +1,10 @@
 @extends('common.base')
+@section('inhead')
+    <link href="{{ asset('/css/c3.min.css') }}" rel="stylesheet" type="text/css">
+@endsection
 @section('inbody')
     <script src="{{ asset('/js/d3.min.js') }}"></script>
-    <script src="//infographicstw.github.io/labella-ui/d3kit.min.js"></script>
-    <script src="{{ asset('/js/labella.min.js') }}"></script>
-    <script src="//infographicstw.github.io/labella-ui/d3kit-timeline.js"></script>
+    <script defer src="{{ asset('/js/c3.min.js') }}"></script>
     <script defer src="{{ asset('/js/timeline-show.js') }}"></script>
 @endsection
 @section('container')
