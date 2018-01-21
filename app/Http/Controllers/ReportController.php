@@ -169,4 +169,16 @@ class ReportController extends Controller
         ];
         return response()->json($ret);
     }
+
+    public function detatch(Request $request)
+    {
+        $report_id = $request->input('report_id');
+        $timeline_id = $request->input('timeline_id');
+        try {
+            $record = ReportTimeLine::where("report_id", $report_id)->where("time_line_id", $timeline_id)->delete();
+        } catch (\Exception $e) {
+            return response()->json(['error' => true, 'message' => $e->getMessages()]);
+        }
+        return response()->json(['error' => false]);
+    }
 }
