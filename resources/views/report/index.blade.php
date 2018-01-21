@@ -14,6 +14,12 @@
                 <span class="glyphicon glyphicon-pencil"></span>
                 編輯
             </a>
+            @foreach($report->timelines as $timeline)
+                <button type="button" class="label label-success detatch" data-timeline-id="{{ $timeline->id }}" data-report-id="{{ $report->id }}">
+                    {{ $timeline->name }}
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            @endforeach
             @endif
         </li>
         @endforeach
