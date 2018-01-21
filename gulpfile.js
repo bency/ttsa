@@ -21,6 +21,7 @@ elixir(mix => {
        .webpack('predict.js')
        .webpack('report-edit.js')
        .webpack('report-show.js')
+       .webpack('report-index.js')
        .webpack('timeline-show.js')
        .webpack('dragnupload.js')
        .webpack('diagram.js')
