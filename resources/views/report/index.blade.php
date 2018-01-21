@@ -1,4 +1,7 @@
 @extends('common.base')
+@section('inbody')
+    <script defer src="{{ asset('js/report-index.js') }}"></script>
+@endsection
 @section('container')
     <ul class="list-group">
         @foreach($reports as $report)
