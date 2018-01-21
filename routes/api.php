@@ -25,3 +25,4 @@ Route::resource('posts', 'PostController');
 Route::resource('imagetag', 'ImageTagController');
 Route::resource('traffic', 'TrafficController');
 Route::get('report/{timeline_id}', 'ReportController@timelineData');
+Route::post('report/detatch', 'ReportController@detatch');
